@@ -342,7 +342,19 @@
       $$('[data-curve]').forEach(function (c) {
         var p = $('.cv-line', c); if (p) gsap.set(p, { drawSVG: '0% 100%' });
         var f = $('[data-curve-fig]', c); if (f) f.textContent = euro(1200);
+        var d = $('[data-curve-day]', c); if (d) d.textContent = 'day 368';
       });
+      /* The year scene resolves to its end state: every marker lit, all cards shown. */
+      $$('[data-year-scene] [data-mark]').forEach(function (g) { g.classList.add('is-on'); });
+      $$('[data-year-scene] [data-yr-card]').forEach(function (c) { c.setAttribute('data-active', ''); });
+      var yf = $('[data-yr-fill]'); if (yf) yf.setAttribute('width', 888);
+      var yd = $('[data-yr-day]'); if (yd) yd.textContent = '400';
+      $$('[data-count]').forEach(function (el) {
+        var to = parseFloat(el.getAttribute('data-count'));
+        el.textContent = (el.getAttribute('data-count-prefix') || '') +
+          Math.round(to).toLocaleString('en-IE') + (el.getAttribute('data-count-suffix') || '');
+      });
+      gsap.set('[data-field] i', { opacity: .16, scale: 1 });
     });
 
     mm.add('(prefers-reduced-motion: no-preference)', function () {
@@ -430,19 +442,213 @@
         });
       });
 
+      counters();
+      progress();
+      cardPhysics();
+      registerRows();
+      heroField();
+
+      var killScene = (window.innerWidth < 900) ? buildYearScene(false) : null;
+
       return function cleanup() {
         splits.forEach(function (s) { try { s.revert(); } catch (e) {} });
+        if (killScene) killScene();
       };
     });
 
+    /* ---- Figures count up when they arrive. Tabular numerals mean the width
+       does not jump while they run. ---- */
+    function counters() {
+      $$('[data-count]').forEach(function (el) {
+        var to = parseFloat(el.getAttribute('data-count'));
+        var prefix = el.getAttribute('data-count-prefix') || '';
+        var suffix = el.getAttribute('data-count-suffix') || '';
+        var o = { v: 0 };
+        gsap.to(o, {
+          v: to, duration: 1.3, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+          onUpdate: function () {
+            el.textContent = prefix + Math.round(o.v).toLocaleString('en-IE') + suffix;
+          }
+        });
+      });
+    }
+
+    /* ---- A hairline reading progress bar in the header. ---- */
+    function progress() {
+      var bar = $('[data-progress]');
+      if (!bar) return;
+      gsap.to(bar, {
+        scaleX: 1, ease: 'none', transformOrigin: 'left center',
+        scrollTrigger: { start: 0, end: 'max', scrub: .25 }
+      });
+    }
+
+    /* ---- Cards lift toward the pointer. quickTo keeps this off the main
+       thread of the event handler; the movement is small on purpose. ---- */
+    function cardPhysics() {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      $$('[data-lift]').forEach(function (el) {
+        var xTo = gsap.quickTo(el, 'x', { duration: .5, ease: 'power3' });
+        var yTo = gsap.quickTo(el, 'y', { duration: .5, ease: 'power3' });
+        var rx = gsap.quickTo(el, 'rotateX', { duration: .5, ease: 'power3' });
+        var ry = gsap.quickTo(el, 'rotateY', { duration: .5, ease: 'power3' });
+        el.addEventListener('pointermove', function (e) {
+          var r = el.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width - .5;
+          var py = (e.clientY - r.top) / r.height - .5;
+          xTo(px * 6); yTo(py * 5); ry(px * 3.2); rx(-py * 3.2);
+        });
+        el.addEventListener('pointerleave', function () { xTo(0); yTo(0); rx(0); ry(0); });
+      });
+    }
+
+    /* ---- Register rows arrive in sequence, from the rule outward. ---- */
+    function registerRows() {
+      var rows = $$('.reg__e');
+      if (!rows.length) return;
+      gsap.set(rows, { opacity: 0, x: -10 });
+      ScrollTrigger.batch(rows, {
+        start: 'top 95%', once: true,
+        onEnter: function (batch) {
+          gsap.to(batch, { opacity: 1, x: 0, duration: .45, ease: 'power2.out', stagger: .04, overwrite: true });
+        }
+      });
+    }
+
+    /* ---- The hero backdrop: a field of day-cells that resolve into place.
+       365 squares, one per day of a compliance year. Plays once, costs nothing
+       after that, and is purely decorative so it is aria-hidden. ---- */
+    function heroField() {
+      var host = $('[data-field]');
+      if (!host) return;
+      var cells = $$('i', host);
+      if (!cells.length) return;
+      gsap.fromTo(cells,
+        { opacity: 0, scale: .4 },
+        {
+          opacity: 1, scale: 1, duration: .5, ease: 'power2.out',
+          stagger: { each: .0016, from: 'random' }, delay: .25
+        });
+      /* A handful of cells stay lit and breathe — the filing days in a year.
+         Deliberately a small subset: a field that all pulses reads as noise. */
+      /* One cell per month-end: twelve filing days in a year of 365. */
+      var lit = cells.filter(function (_, i) { return i % 31 === 30; });
+      var pulse = gsap.to(lit, {
+        opacity: .5, duration: 2.8, ease: 'sine.inOut',
+        stagger: { each: .09, from: 'random' }, repeat: -1, yoyo: true, delay: 1.2
+      });
+      /* Nothing should repaint for a backdrop nobody can see. */
+      ScrollTrigger.create({
+        trigger: host.closest('.hero') || host,
+        start: 'top bottom', end: 'bottom top',
+        onToggle: function (self) { self.isActive ? pulse.play() : pulse.pause(); }
+      });
+    }
+
+    /* =========================================================================
+       THE SCROLL SCENE — a company's first year.
+       Pinned and scrubbed above 900px. The playhead is the only thing driven by
+       scroll; everything else keys off the day it is currently over, so the
+       sequence stays correct at any scroll speed and in either direction.
+       ========================================================================= */
+    function buildYearScene(pinned) {
+      var sec = $('[data-year-scene]');
+      if (!sec) return;
+      var svg = $('.yr-svg', sec);
+      var fill = $('[data-yr-fill]', svg);
+      var head = $('[data-playhead]', svg);
+      var dayOut = $('[data-yr-day]', sec);
+      var bar = $('[data-yr-bar]', sec);
+      var marks = $$('[data-mark]', svg).map(function (g) {
+        return { g: g, day: +g.getAttribute('data-day'), key: g.getAttribute('data-mark') };
+      });
+      var cards = $$('[data-yr-card]', sec);
+      var DAYS = 400;
+      /* Read the geometry out of the built SVG so JS and markup cannot drift. */
+      var vb = (svg.getAttribute('viewBox') || '0 0 1000 300').split(/\s+/).map(Number);
+      var W = vb[2], PAD_L = 56, PAD_R = 56;
+      var xOf = function (d) { return PAD_L + (W - PAD_L - PAD_R) * (Math.min(d, DAYS) / DAYS); };
+
+      var state = { day: 0 };
+      var lastKey = null;
+      /* Only the pinned variant swaps one card at a time. Unpinned, every card
+         is a plain stacked list item and must stay visible. */
+      var swapsCards = pinned;
+
+      var lastDay = -1;
+      function paint() {
+        var d = state.day;
+        if (Math.abs(d - lastDay) < 0.4) return;   // sub-pixel moves are not worth a repaint
+        lastDay = d;
+        var x = xOf(d);
+        head.setAttribute('transform', 'translate(' + x.toFixed(1) + ',0)');
+        fill.setAttribute('width', Math.max(0, x - PAD_L).toFixed(1));
+        if (dayOut) dayOut.textContent = Math.round(d);
+        if (bar) bar.style.width = ((d / DAYS) * 100).toFixed(1) + '%';
+
+        var active = marks[0];
+        for (var i = 0; i < marks.length; i++) {
+          var on = d >= marks[i].day - 0.5;
+          marks[i].g.classList.toggle('is-on', on);
+          if (on) active = marks[i];
+        }
+        if (swapsCards && active.key !== lastKey) {
+          lastKey = active.key;
+          cards.forEach(function (c) {
+            var me = c.getAttribute('data-yr-card') === active.key;
+            if (me) {
+              c.setAttribute('data-active', '');
+              gsap.fromTo(c, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .34, ease: 'power2.out', overwrite: true });
+            } else {
+              c.removeAttribute('data-active');
+              gsap.set(c, { opacity: 0 });
+            }
+          });
+        }
+      }
+
+      if (!pinned) {
+        /* Unpinned: play the sweep once when the section arrives. */
+        gsap.to(state, {
+          day: DAYS, duration: 2.4, ease: 'none', onUpdate: paint,
+          scrollTrigger: { trigger: sec, start: 'top 70%', once: true }
+        });
+        cards.forEach(function (c) { c.setAttribute('data-active', ''); gsap.set(c, { clearProps: 'opacity,transform' }); });
+        state.day = 0; paint();
+        return;
+      }
+
+      var st = ScrollTrigger.create({
+        trigger: sec,
+        start: 'top top',
+        end: '+=260%',
+        pin: $('[data-yr-pin]', sec),
+        pinSpacing: true,
+        scrub: .45,
+        invalidateOnRefresh: true,
+        onUpdate: function (self) {
+          /* Slight overshoot so the final card lands before the pin releases. */
+          state.day = Math.min(self.progress * (DAYS + 30), DAYS);
+          paint();
+        }
+      });
+      paint();
+      return function () { st && st.kill(); };
+    }
+
     /* Desktop only: the folio column holds while its group passes, like a straight-edge. */
     mm.add('(min-width: 900px) and (prefers-reduced-motion: no-preference)', function () {
+      var killScene = buildYearScene(true);
+
       $$('[data-pin]').forEach(function (el) {
         ScrollTrigger.create({
           trigger: el.closest('[data-pin-scope]') || el.parentElement,
           start: 'top 18%', end: 'bottom 60%', pin: el, pinSpacing: false, invalidateOnRefresh: true
         });
       });
+
+      return function () { if (killScene) killScene(); };
     });
 
     /* Fonts change line wrapping, which changes every trigger position. */

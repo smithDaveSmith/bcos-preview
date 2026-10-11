@@ -40,7 +40,7 @@ module.exports = function firm() {
     </div>
 
     <div class="stat" style="margin-top:var(--sp-m)" data-anim="rise">
-      <div class="stat__i"><span class="stat__k">Registered</span><span class="stat__v"><b>1 July 2002</b> &middot; Company number ${esc(site.cro)} &middot; ${years} years</span></div>
+      <div class="stat__i"><span class="stat__k">Registered</span><span class="stat__v"><b>1 July 2002</b> &middot; Company number ${esc(site.cro)} &middot; <b><span data-count="${years}">0</span> years</b></span></div>
       <div class="stat__i"><span class="stat__k">Offices</span><span class="stat__v">${site.offices.map(o => `<b>${esc(o.label)}</b> — ${esc(o.role.toLowerCase())}`).join('<br>')}</span></div>
       <div class="stat__i"><span class="stat__k">Clients include</span><span class="stat__v">${site.clientTypes.map(esc).join(' &middot; ')}</span></div>
       <div class="stat__i"><span class="stat__k">Markets</span><span class="stat__v">${site.markets.map(esc).join(', ')}</span></div>
@@ -58,7 +58,7 @@ module.exports = function firm() {
     </div>
     <div class="ppl">
       ${ppl.people.map((p, i) => `
-      <article class="ppl__i" data-anim="rise" id="${esc(p.slug)}">
+      <article class="ppl__i" data-anim data-lift="rise" id="${esc(p.slug)}">
         <span class="ppl__n fig">${String(i + 1).padStart(2, '0')}</span>
         <div>
           <h3 class="ppl__name">${esc(p.name)}</h3>

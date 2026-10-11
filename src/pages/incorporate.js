@@ -34,7 +34,7 @@ module.exports = function incorporate() {
     <h2 id="ct" class="d2" >${typo('The four types')}</h2>
     <div class="types" style="margin-top:var(--sp-s)">
       ${types.types.map((t, i) => `
-      <div class="types__i" id="${esc(t.slug)}" data-anim="rise" data-delay="${(i * .06).toFixed(2)}">
+      <div class="types__i" id="${esc(t.slug)}" data-anim data-lift="rise" data-delay="${(i * .06).toFixed(2)}">
         <span class="types__code">${esc(t.code)}</span>
         <h3 class="types__n">${esc(t.name)}</h3>
         <p class="types__s">${typo(esc(t.summary))}</p>
@@ -67,7 +67,7 @@ module.exports = function incorporate() {
         ['Members and shares', 'The shareholders and the shares to be issued — at least one ordinary share of €1.00 unless you specify otherwise.'],
         ['Client identification', 'A certified copy of a recent utility bill or bank statement, plus certified photo identification, for each director and for anyone holding 25% or more of the equity or voting capital. Certification by a practising accountant, a solicitor or a member of a national police force.']
       ].map((r, i) => `
-      <div class="cons__i" data-anim="rise" data-delay="${(i * .05).toFixed(2)}">
+      <div class="cons__i" data-anim data-lift="rise" data-delay="${(i * .05).toFixed(2)}">
         <span class="cons__n">${String(i + 1).padStart(2, '0')}</span>
         <h3 class="cons__t">${esc(r[0])}</h3>
         <p class="cons__d">${typo(esc(r[1]))}</p>

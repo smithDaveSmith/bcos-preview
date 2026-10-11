@@ -161,8 +161,7 @@ main:focus{outline:none}
 @media (max-width:760px){.pv__t{font-size:11.5px}.pv__long{display:none}}
 
 /* ---------- Header ---------- */
-.hd{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.92);
-  backdrop-filter:saturate(1.6) blur(10px);border-bottom:1px solid var(--line)}
+.hd{position:sticky;top:0;z-index:90;background:#fff;border-bottom:1px solid var(--line)}
 .hd__in{max-width:1340px;margin-inline:auto;padding:0 var(--gut);
   display:flex;align-items:center;gap:clamp(14px,2.4vw,36px);min-height:66px}
 .hd__mark{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
@@ -231,9 +230,9 @@ main:focus{outline:none}
 /* =============================================================
    HERO — a claim, proof, and the working tool. No atmosphere.
    ============================================================= */
-.hero{background:linear-gradient(180deg,var(--mist) 0%,#fff 72%);
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--mist) 0%,#fff 72%);
   border-bottom:1px solid var(--line);padding-block:clamp(36px,5vw,64px) clamp(40px,5vw,72px)}
-.hero__in{max-width:1340px;margin-inline:auto;padding-inline:var(--gut)}
+.hero__in{position:relative;z-index:1;max-width:1340px;margin-inline:auto;padding-inline:var(--gut)}
 .hero__grid{display:grid;gap:clamp(28px,4vw,48px);align-items:start}
 .hero__grid > *{min-width:0}
 @media (min-width:1040px){
@@ -449,7 +448,7 @@ main:focus{outline:none}
 .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
 
 /* People */
-.ppl{display:grid;gap:16px}
+.ppl{display:grid;gap:16px;perspective:900px}
 @media (min-width:640px){.ppl{grid-template-columns:1fr 1fr}}
 .ppl__i{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(18px,2vw,24px)}
 .ppl__top{display:flex;align-items:center;gap:13px}
@@ -482,7 +481,7 @@ main:focus{outline:none}
 .types__act{margin-top:auto;padding-top:18px}
 
 /* Notices */
-.nts{display:grid;gap:16px}
+.nts{display:grid;gap:16px;perspective:1100px}
 .nts > *{min-width:0}
 .nts__i{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);
   padding:clamp(18px,2.2vw,28px);min-width:0;overflow-wrap:anywhere}
@@ -633,3 +632,120 @@ main:focus{outline:none}
   .inst__hd{flex-wrap:wrap;gap:8px}
   .inst__title{font-size:13px}
 }
+
+/* =============================================================
+   THE SCROLL SCENE — a company's first year
+   Pinned and scrubbed on desktop; a plain stacked sequence below.
+   ============================================================= */
+.yr{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.yr::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(58% 50% at 50% 42%,rgba(60,116,220,.28),transparent 72%);
+  will-change:auto;contain:paint}
+.yr__pin{position:relative;z-index:1;padding-block:clamp(44px,6vw,76px)}
+@media (min-width:900px){
+  /* The pinned frame fills the viewport and centres, so the scene feels placed
+     rather than parked at the top. The wrap needs an explicit width: as a flex
+     item its auto inline margins would otherwise shrink it to its content. */
+  .yr__pin{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+  .yr__pin > .wrap{width:100%}
+}
+.yr__head{display:grid;gap:18px 32px;align-items:end}
+@media (min-width:860px){.yr__head{grid-template-columns:minmax(0,1fr) auto}}
+.yr__head > div:first-child{min-width:0}
+.yr__head .d2{max-width:20ch}
+.yr__head .eyebrow{color:#8FB4F5}
+.yr__head .d2{color:#fff}
+.yr__count{display:flex;align-items:baseline;gap:14px;flex:0 0 auto;justify-self:start}
+@media (min-width:860px){.yr__count{justify-self:end}}
+.yr__day{font-size:clamp(38px,5vw,68px);font-weight:600;line-height:.9;color:#fff;
+  letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.yr__dayl{font-size:12.5px;line-height:1.35;color:#A9B8D4;max-width:11ch}
+
+.yr__chart{margin-top:clamp(30px,4.4vw,60px)}
+.yr-svg{width:100%;height:auto;display:block;overflow:visible}
+.yr-axis{stroke:rgba(255,255,255,.26);stroke-width:1}
+.yr-tick{stroke:rgba(255,255,255,.22);stroke-width:1}
+.yr-tick--maj{stroke:rgba(255,255,255,.4)}
+
+.yr-fill{fill:#3C74DC}
+.yr-penband{fill:rgba(255,142,120,.09);stroke:rgba(255,142,120,.34);stroke-width:1;stroke-dasharray:4 4}
+.yr-penlab{font-family:var(--ff);font-size:11px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;fill:rgba(255,142,120,.9)}
+.yr-stem{stroke:rgba(255,255,255,.3);stroke-width:1;stroke-dasharray:2 3}
+.yr-node{fill:var(--navy);stroke:rgba(255,255,255,.45);stroke-width:1.5}
+.yr-node-c{fill:rgba(255,255,255,.5)}
+.yr-lab{font-family:var(--ff);font-size:14px;font-weight:600;fill:#B9C8E6}
+.yr-mk{opacity:.5;transition:opacity .25s}
+.yr-mk.is-on{opacity:1}
+.yr-mk.is-on .yr-node{stroke:#fff;stroke-width:2}
+.yr-mk.is-on .yr-node-c{fill:#fff}
+.yr-mk.is-on .yr-lab{fill:#fff}
+.yr-mk.is-on .yr-stem{stroke:rgba(255,255,255,.55);stroke-dasharray:none}
+.yr-mk--danger.is-on .yr-node{stroke:#FF8E78}
+.yr-mk--danger.is-on .yr-node-c{fill:#FF8E78}
+.yr-mk--danger.is-on .yr-lab{fill:#FF8E78}
+.yr-head{stroke:rgba(255,255,255,.55);stroke-width:1.5}
+.yr-head-d{fill:#fff}
+
+.yr__cards{position:relative;margin-top:clamp(30px,4vw,54px);min-height:150px}
+.yr__c{position:absolute;inset:0;opacity:0;pointer-events:none;max-width:60ch}
+.yr__c[data-active]{opacity:1;pointer-events:auto}
+.yr__ck{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8FB4F5}
+.yr__ct{margin-top:8px;font-size:clamp(20px,2.4vw,30px);font-weight:600;letter-spacing:-.02em;color:#fff;line-height:1.2}
+.yr__cn{margin-top:11px;font-size:16.5px;line-height:1.62;color:#C3CEE2}
+
+.yr__bar{margin-top:clamp(20px,2.4vw,30px);height:2px;background:rgba(255,255,255,.14);border-radius:2px;overflow:hidden}
+.yr__bar span{display:block;height:100%;width:0;background:#3C74DC;border-radius:2px}
+
+/* Below the pin breakpoint the scene reads as a plain stacked list. */
+@media (max-width:899px){
+  .yr__cards{min-height:0;display:grid;gap:14px}
+  .yr__c{position:static;opacity:1;pointer-events:auto;padding:16px;border-radius:var(--r);
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+  .yr__bar{display:none}
+  .yr-mk{opacity:1}
+  .yr__chart{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .yr-svg{min-width:660px}
+}
+@media (prefers-reduced-motion:reduce){
+  .yr__c{position:static;opacity:1;pointer-events:auto}
+  .yr__cards{min-height:0;display:grid;gap:14px}
+  .yr-mk{opacity:1}
+}
+
+/* Header reading progress */
+.hd__progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--blue);
+  transform:scaleX(0);transform-origin:left center;z-index:2}
+
+/* Hero backdrop: 365 day-cells, one per day of a compliance year. Decorative
+   only, confined to the top-right, and faded out well before it reaches text. */
+.hero__field{position:absolute;top:24px;right:var(--gut);pointer-events:none;
+  display:grid;grid-template-columns:repeat(31,7px);grid-auto-rows:7px;gap:4px;
+  align-content:start;justify-content:end;
+  -webkit-mask-image:radial-gradient(130% 115% at 100% 0%,#000 18%,rgba(0,0,0,.3) 52%,transparent 78%);
+          mask-image:radial-gradient(130% 115% at 100% 0%,#000 18%,rgba(0,0,0,.3) 52%,transparent 78%)}
+.hero__field i{display:block;width:7px;height:7px;border-radius:1.5px;background:var(--blue);opacity:.14}
+/* Hidden where it would crowd the panel rather than sit behind it. */
+@media (max-width:1399px){.hero__field{display:none}}
+
+/* Cards that respond to the pointer need a perspective root and GPU hint. */
+[data-lift]{transform-style:preserve-3d}
+[data-lift]:hover{will-change:transform}
+.grid3,.cons,.types{perspective:900px}
+
+/* Motion start-states are applied by JS, never by CSS — see beacon.js */
+@media (prefers-reduced-motion:reduce){
+  .hd__progress{display:none}
+  .hero__field i{opacity:.14!important;transform:none!important}
+  [data-lift]{will-change:auto}
+}
+
+/* The scroll hint is only true where the scene actually scrubs. */
+.yr__hint{display:none}
+@media (min-width:900px) and (prefers-reduced-motion:no-preference){
+  .yr__hint{display:flex;align-items:center;gap:7px;margin-top:12px;
+    font-size:13px;font-weight:500;color:#8FB4F5}
+  .yr__hint span{display:inline-block;animation:yrNudge 1.9s var(--ease) infinite}
+}
+@keyframes yrNudge{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(3px);opacity:1}}
+

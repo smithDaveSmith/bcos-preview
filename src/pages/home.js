@@ -5,6 +5,7 @@ const { character } = require('../layout');
 /* Small check glyph used in the trust strip. */
 const tick = () => `<svg class="trust__ic" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const { instrumentSvg } = require('../instrument-svg');
+const { yearSvg, MARKS } = require('../year-scene');
 
 const site = data('site');
 const statute = data('statute');
@@ -66,6 +67,7 @@ module.exports = function home() {
 
   const body = `
 <section class="hero" aria-labelledby="h-title">
+  <div class="hero__field" data-field aria-hidden="true">${Array.from({ length: 365 }, () => '<i></i>').join('')}</div>
   <div class="hero__in">
     <div class="hero__grid">
       <div class="hero__copy">
@@ -77,7 +79,7 @@ module.exports = function home() {
           <a class="btn btn--secondary btn--lg" href="${url('/services/')}">See all 16 obligations</a>
         </div>
         <ul class="trust">
-          <li class="trust__i">${tick()}<span><b>${yearsTrading} years</b> registered in Ireland</span></li>
+          <li class="trust__i">${tick()}<span><b><span data-count="${yearsTrading}">0</span> years</b> registered in Ireland</span></li>
           <li class="trust__i">${tick()}<span><b>Dublin</b> and <b>London</b> offices</span></li>
           <li class="trust__i">${tick()}<span>Chartered Governance Institute certified</span></li>
         </ul>
@@ -148,17 +150,17 @@ module.exports = function home() {
     </div>
 
     <div class="grid3">
-      <div class="card" data-anim>
+      <div class="card" data-anim data-lift>
         <p class="eyebrow">Rule one</p>
         <p class="d3" style="margin-top:10px;font-size:19px">Annual return date<br>+ 56 days</p>
         <p style="margin-top:10px;font-size:14.5px;line-height:1.55;color:var(--body)">The one everyone has in the diary.</p>
       </div>
-      <div class="card" data-anim>
+      <div class="card" data-anim data-lift>
         <p class="eyebrow">Rule two</p>
         <p class="d3" style="margin-top:10px;font-size:19px">Financial year end<br>+ 9 months + 56 days</p>
         <p style="margin-top:10px;font-size:14.5px;line-height:1.55;color:var(--body)">Applies wherever financial statements are attached — which is almost every company.</p>
       </div>
-      <div class="card card--raised" data-anim style="border-color:#BFD5F6;background:var(--blue-50)">
+      <div class="card card--raised" data-anim data-lift style="border-color:#BFD5F6;background:var(--blue-50)">
         <p class="eyebrow">Which one applies</p>
         <p class="d3" style="margin-top:10px;font-size:19px">Whichever falls earlier</p>
         <p style="margin-top:10px;font-size:14.5px;line-height:1.55;color:var(--body)">${typo('For a company whose year end sits well in front of its annual return date, rule two bites first — and it is routinely missed.')}</p>
@@ -175,7 +177,7 @@ module.exports = function home() {
     <div class="curve">
       <div data-anim>
         <p class="eyebrow">What it costs to be late</p>
-        <h2 id="s-pen" class="d2" style="margin-top:14px">${typo('€100 the day after. Then €3 a day, to €1,200.')}</h2>
+        <h2 id="s-pen" class="d2" style="margin-top:14px">${typo('€100 the day after. Then €3 a day, to')}&nbsp;<span class="fig" style="font-size:.92em;letter-spacing:-.03em"><span data-count="1200" data-count-prefix="€">€0</span></span>.</h2>
         <p style="margin-top:22px;color:var(--fg-mute);font-size:16.5px;line-height:1.62;max-width:40ch">
           ${typo('The penalty is mechanical. It does not care why the return was late, and it accrues every day until it is filed.')}
         </p>
@@ -191,13 +193,45 @@ module.exports = function home() {
     <h3 class="eyebrow" style="margin-top:var(--sp-m)">And beyond the penalty</h3>
     <div class="cons">
       ${statute.consequences.map((c, i) => `
-      <div class="cons__i" data-anim>
+      <div class="cons__i" data-anim data-lift>
         <span class="cons__n">${String(i + 1).padStart(2, '0')}</span>
         <h4 class="cons__t">${esc(c.title)}</h4>
         <p class="cons__d">${typo(esc(c.detail))}</p>
       </div>`).join('')}
     </div>
     <p class="tbl__note" data-anim style="max-width:72ch">${typo(statute.auditExemption.rule + ' ' + statute.auditExemption.supersedes)}</p>
+  </div>
+</section>
+
+<!-- =========== THE SCROLL SCENE: a company's first year =========== -->
+<section class="yr" data-year-scene aria-labelledby="yr-h">
+  <div class="yr__pin" data-yr-pin>
+    <div class="wrap wrap--wide">
+      <div class="yr__head">
+        <div>
+          <p class="eyebrow">The statutory calendar</p>
+          <h2 id="yr-h" class="d2" style="margin-top:12px">A company's first year</h2>
+          <p class="yr__hint" aria-hidden="true">Scroll to play <span>&darr;</span></p>
+        </div>
+        <div class="yr__count">
+          <span class="yr__day fig" data-yr-day>0</span>
+          <span class="yr__dayl">days since<br>incorporation</span>
+        </div>
+      </div>
+
+      <div class="yr__chart">${yearSvg()}</div>
+
+      <div class="yr__cards">
+        ${MARKS.map((m, i) => `
+        <article class="yr__c" data-yr-card="${esc(m.key)}"${i === 0 ? ' data-active' : ''}>
+          <p class="yr__ck">${esc(m.label)}</p>
+          <h3 class="yr__ct">${esc(m.title)}</h3>
+          <p class="yr__cn">${typo(esc(m.note))}</p>
+        </article>`).join('')}
+      </div>
+
+      <div class="yr__bar" aria-hidden="true"><span data-yr-bar></span></div>
+    </div>
   </div>
 </section>
 
@@ -255,7 +289,7 @@ module.exports = function home() {
     </div>
     <div class="types">
       ${types.types.map((t, i) => `
-      <div class="types__i" data-anim>
+      <div class="types__i" data-anim data-lift>
         <span class="types__code">${esc(t.code)}</span>
         <h3 class="types__n">${esc(t.name)}</h3>
         <p class="types__s">${typo(esc(t.summary))}</p>
@@ -282,7 +316,7 @@ module.exports = function home() {
     </div>
     <div class="nts">
       ${notices.items.slice(0, 3).map(n => `
-      <article class="nts__i" data-anim>
+      <article class="nts__i" data-anim data-lift>
         <div class="nts__top">
           <span class="pill pill--info pill--none">${esc(n.kicker)}</span>
           <span class="nts__date">${esc(n.dateLabel)}</span>

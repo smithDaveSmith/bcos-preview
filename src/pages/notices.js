@@ -29,7 +29,7 @@ module.exports = function notices() {
   <div class="wrap">
     <div class="nts">
       ${nts.items.map(n => `
-      <article class="nts__i" data-anim="rise" id="${esc(n.id)}">
+      <article class="nts__i" data-anim data-lift="rise" id="${esc(n.id)}">
         <div class="nts__top">
           <span class="pill pill--info pill--none">${esc(n.kicker)}</span>
           ${n.corrected ? '<span class="tag">Corrected</span>' : ''}

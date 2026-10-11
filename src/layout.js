@@ -22,6 +22,7 @@ const previewBanner = () => !site.preview.isPreview ? '' : `
 const header = (current) => `
 <a class="skip" href="#main">Skip to content</a>
 <header class="hd" data-hd>
+  <span class="hd__progress" data-progress aria-hidden="true"></span>
   <div class="hd__in">
     <a class="hd__mark" href="${url('/')}"${current === '/' ? ' aria-current="page"' : ''}>
       <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
