@@ -7,14 +7,13 @@ const statute = data('statute');
 
 module.exports = function notices() {
   const body = `
-<section class="sec sec--s" data-tone="night">
-  <div class="sec__glow" aria-hidden="true"></div>
+<section class="sec sec--open" data-tone="mist">
   <div class="wrap">
     <div class="open">
       <div>
-        <div class="sec__no" style="border-top:0"><span class="lab">Notices</span>${character(2)}</div>
-    <h1 class="d1" data-split style="margin-top:20px;max-width:14ch">${headline('What changed,|and when.')}</h1>
-    <p class="lede" style="margin-top:24px;color:#A9B2C6;max-width:56ch">${typo('Company law moves, and a note written while something was still a Bill stops being true once it is an Act. Every item here carries the date it was last checked and the source it was checked against.')}</p>
+        <p class="eyebrow">Notices</p>
+    <h1 class="d1" data-split style="margin-top:14px">${typo('What changed, and when.')}</h1>
+    <p class="lede" style="margin-top:24px;color:var(--body);max-width:56ch">${typo('Company law moves, and a note written while something was still a Bill stops being true once it is an Act. Every item here carries the date it was last checked and the source it was checked against.')}</p>
       </div>
       ${bearing([
         ['Notices', String(nts.items.length), true],
@@ -26,19 +25,18 @@ module.exports = function notices() {
   </div>
 </section>
 
-<section class="sec" data-tone="paper">
+<section class="sec" >
   <div class="wrap">
     <div class="nts">
       ${nts.items.map(n => `
       <article class="nts__i" data-anim="rise" id="${esc(n.id)}">
-        <div class="nts__hd">
-          <span class="nts__date fig">${esc(n.dateLabel)}</span>
-          <div>
-            <span class="nts__kick">${esc(n.kicker)}</span>
-            <h2 class="nts__t">${typo(esc(n.title))}${n.corrected ? '<span class="tag">Corrected</span>' : ''}</h2>
-          </div>
-          <p class="nts__s">${typo(esc(n.summary))}</p>
+        <div class="nts__top">
+          <span class="pill pill--info pill--none">${esc(n.kicker)}</span>
+          ${n.corrected ? '<span class="tag">Corrected</span>' : ''}
+          <span class="nts__date">${esc(n.dateLabel)}</span>
         </div>
+        <h2 class="nts__t">${typo(esc(n.title))}</h2>
+        <p class="nts__s">${typo(esc(n.summary))}</p>
         <div class="nts__body prose">
           ${n.body.map(p => `<p>${typo(esc(p))}</p>`).join('')}
           ${n.table === 'sizeThresholds' ? `

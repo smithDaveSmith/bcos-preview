@@ -15,6 +15,7 @@ const CONTRAST = `(() => {
     const s = getComputedStyle(el);
     if (s.visibility==='hidden'||s.display==='none'||+s.opacity===0) return;
     if ([...el.children].some(c=>c.textContent.trim()===el.textContent.trim())) return;
+    if (el.closest('[aria-hidden="true"]')) return;   // decorative: exempt from WCAG contrast
     const fg = toRGB(s.color); if(!fg) return;
     const bg = bgOf(el);
     const L1 = lum(fg), L2 = lum(bg);

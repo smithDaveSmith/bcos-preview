@@ -6,19 +6,18 @@ const ob = data('obligations');
 
 module.exports = function contact() {
   const body = `
-<section class="sec sec--s" data-tone="night">
-  <div class="sec__glow" aria-hidden="true"></div>
+<section class="sec sec--open" data-tone="mist">
   <div class="wrap">
     <div class="open">
       <div>
-        <div class="sec__no" style="border-top:0"><span class="lab">Contact</span>${character(2)}</div>
-    <h1 class="d1" data-split style="margin-top:20px;max-width:15ch">${headline('Call in, telephone,|or write.')}</h1>
-    <p class="lede" style="margin-top:24px;color:#A9B2C6;max-width:52ch">${typo('Communication is the key to a working business relationship. If you are not sure which of these services you need, say what the company is and what is coming up — that is usually enough for us to tell you.')}</p>
+        <p class="eyebrow">Contact</p>
+    <h1 class="d1" data-split style="margin-top:14px">${typo('Call in, telephone, or write.')}</h1>
+    <p class="lede" style="margin-top:24px;color:var(--body);max-width:52ch">${typo('Communication is the key to a working business relationship. If you are not sure which of these services you need, say what the company is and what is coming up — that is usually enough for us to tell you.')}</p>
     <div class="hero__acts" style="margin-top:32px">
-      <a class="btn btn--gold btn--lg" href="${site.phone.href}"><span>${esc(site.phone.display)}</span></a>
-      <a class="btn btn--ghost btn--lg" href="mailto:${site.email}"><span>${esc(site.email)}</span></a>
+      <a class="btn btn--primary btn--lg" href="${site.phone.href}">${esc(site.phone.display)}</a>
+      <a class="btn btn--secondary btn--lg" href="mailto:${site.email}">${esc(site.email)}</a>
     </div>
-    <p class="lab" style="margin-top:26px">${esc(site.hours.display)}</p>
+    <p class="eyebrow" style="margin-top:26px">${esc(site.hours.display)}</p>
       </div>
       ${bearing([
         ['Dublin', 'K78 X5W6', true],
@@ -30,29 +29,29 @@ module.exports = function contact() {
   </div>
 </section>
 
-<section class="sec" data-tone="paper">
+<section class="sec" >
   <div class="wrap">
     <div class="cx">
       <div>
-        <h2 class="lab">Where we are</h2>
+        <h2 class="eyebrow">Where we are</h2>
         ${site.offices.map(o => `
         <div class="cx__office" data-anim="rise">
           <h3>${esc(o.label)}</h3>
           <p class="cx__role">${esc(o.role)}</p>
           <address>${o.lines.map(esc).join('<br>')}<br>${esc(o.postal)}<br>${esc(o.country)}</address>
-          <p class="cx__map"><a class="lnk" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(o.mapQuery)}" rel="noopener"><span>Open in Maps</span><em>&rarr;</em></a></p>
+          <p class="cx__map"><a class="lnk" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(o.mapQuery)}" rel="noopener">Open in Maps <em>&rarr;</em></a></p>
         </div>`).join('')}
 
         <div class="cx__office" data-anim="rise">
           <h3>Registry links</h3>
           <ul class="reglist">
-            ${site.registries.map(r => `<li><a class="lnk" href="${r.url}" rel="noopener"><span>${esc(r.label)}</span><em>&nearr;</em></a></li>`).join('')}
+            ${site.registries.map(r => `<li><a class="lnk" href="${r.url}" rel="noopener">${esc(r.label)}</a></li>`).join('')}
           </ul>
         </div>
       </div>
 
       <div data-anim="rise">
-        <h2 class="lab">Send a message</h2>
+        <h2 class="eyebrow">Send a message</h2>
         <div class="frm__demo" style="margin-top:16px">
           <p><b>This form does not send.</b> ${typo('It is part of a concept preview with no mailbox behind it. It validates properly, and it will hand your message to your own email client — but it will never show you a success message for something that did not happen.')}</p>
         </div>
@@ -96,7 +95,7 @@ module.exports = function contact() {
             <span class="f__err" aria-live="polite"></span>
           </div>
           <div>
-            <button class="btn btn--ink btn--lg" type="submit"><span>Prepare this message</span></button>
+            <button class="btn btn--primary btn--lg" type="submit">Prepare this message</button>
           </div>
           <div class="frm__out" data-form-out hidden></div>
         </form>

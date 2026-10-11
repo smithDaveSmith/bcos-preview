@@ -7,17 +7,16 @@ const statute = data('statute');
 
 module.exports = function incorporate() {
   const body = `
-<section class="sec sec--s" data-tone="night">
-  <div class="sec__glow" aria-hidden="true"></div>
+<section class="sec sec--open" data-tone="mist">
   <div class="wrap">
     <div class="open">
       <div>
-        <div class="sec__no" style="border-top:0"><span class="lab">Incorporation</span>${character(2)}</div>
-    <h1 class="d1" data-split style="margin-top:20px;max-width:15ch">${headline('Start a company|on the right|footing.')}</h1>
-    <p class="lede" style="margin-top:24px;color:#A9B2C6;max-width:52ch">${typo('Four company types are available in the Republic of Ireland. The right one depends on what the business does and what structure sits around it — and it determines your directors, your secretary and your members’ exposure from day one.')}</p>
+        <p class="eyebrow">Incorporation</p>
+    <h1 class="d1" data-split style="margin-top:14px">${typo('Start a company on the right footing.')}</h1>
+    <p class="lede" style="margin-top:24px;color:var(--body);max-width:52ch">${typo('Four company types are available in the Republic of Ireland. The right one depends on what the business does and what structure sits around it — and it determines your directors, your secretary and your members’ exposure from day one.')}</p>
     <div class="stat" style="margin-top:var(--sp-s);--rule:rgba(192,156,96,.22)">
-      <div class="stat__i"><span class="stat__k">First return</span><span class="stat__v" style="color:#A9B2C6">Due <b style="color:var(--gold)">six months</b> after incorporation.</span></div>
-      <div class="stat__i"><span class="stat__k">Beneficial ownership</span><span class="stat__v" style="color:#A9B2C6">Due within <b style="color:var(--gold)">five months</b> of incorporation.</span></div>
+      <div class="stat__i"><span class="stat__k">First return</span><span class="stat__v" >Due <b style="color:var(--gold)">six months</b> after incorporation.</span></div>
+      <div class="stat__i"><span class="stat__k">Beneficial ownership</span><span class="stat__v" >Due within <b style="color:var(--gold)">five months</b> of incorporation.</span></div>
     </div>
       </div>
       ${bearing([
@@ -30,9 +29,9 @@ module.exports = function incorporate() {
   </div>
 </section>
 
-<section class="sec" data-tone="paper" aria-labelledby="ct">
+<section class="sec"  aria-labelledby="ct">
   <div class="wrap">
-    <h2 id="ct" class="d2" data-split style="max-width:14ch">${headline('The four types')}</h2>
+    <h2 id="ct" class="d2" >${typo('The four types')}</h2>
     <div class="types" style="margin-top:var(--sp-s)">
       ${types.types.map((t, i) => `
       <div class="types__i" id="${esc(t.slug)}" data-anim="rise" data-delay="${(i * .06).toFixed(2)}">
@@ -47,17 +46,17 @@ module.exports = function incorporate() {
           <dt class="types__dt">Liability</dt><dd class="types__dd">${esc(t.liability)}</dd>
           <dt class="types__dt">Accounts</dt><dd class="types__dd">${typo(esc(t.notes))}</dd>
         </dl>
-        <p class="types__act"><a class="lnk" href="${url('/' + t.slug + 'form/')}"><span>Application form</span><em>&rarr;</em></a></p>
+        <p class="types__act"><a class="lnk" href="${url('/' + t.slug + 'form/')}">Application form <em>&rarr;</em></a></p>
       </div>`).join('')}
     </div>
   </div>
 </section>
 
-<section class="sec sec--l band" data-tone="paper-2" aria-labelledby="inc-how">
+<section class="sec sec--l band" data-tone="mist" aria-labelledby="inc-how">
   <div class="wrap">
     <div class="sec__head">
-      <div><span class="lab">How it runs</span>
-        <h2 id="inc-how" class="d2" style="margin-top:18px;max-width:12ch">${headline('What we need|from you')}</h2></div>
+      <div><span class="eyebrow">How it runs</span>
+        <h2 id="inc-how" class="d2" style="margin-top:18px">${typo('What we need from you')}</h2></div>
       <div data-anim="rise"><p class="lede">${typo('Beacon is a regulated trust and company service provider, so client identification has to be completed before an incorporation can proceed. That is the part worth preparing early — the rest is ours.')}</p></div>
     </div>
     <div class="cons">
@@ -78,15 +77,15 @@ module.exports = function incorporate() {
   </div>
 </section>
 
-<section class="sec" data-tone="paper" aria-labelledby="inc-rbo">
+<section class="sec"  aria-labelledby="inc-rbo">
   <div class="wrap">
     <div class="cols cols--sb">
-      <div><span class="lab">And immediately after</span>
+      <div><span class="eyebrow">And immediately after</span>
         <h2 id="inc-rbo" class="d3" style="margin-top:16px;max-width:20ch">${typo('Two clocks start on the day you incorporate.')}</h2></div>
       <div class="prose" data-anim="rise">
         <p>${typo(statute.rbo.rule)}</p>
         <p>${typo(statute.annualReturn.firstReturn.note + ' Neither of these waits for the company to begin trading.')}</p>
-        <p><a class="lnk" href="${url('/services/beneficial-ownership/')}"><span>Beneficial ownership, in full</span><em>&rarr;</em></a></p>
+        <p><a class="lnk" href="${url('/services/beneficial-ownership/')}">Beneficial ownership, in full <em>&rarr;</em></a></p>
       </div>
     </div>
   </div>

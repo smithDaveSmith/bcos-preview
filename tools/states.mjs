@@ -9,25 +9,25 @@ const out = {};
   const ctx = await br.newContext({viewport:{width:1440,height:900},deviceScaleFactor:2});
   const p = await ctx.newPage();
   await p.goto(B+'/',{waitUntil:'load'}); await p.waitForTimeout(2600);
-  const dial = p.locator('.inst__stage');
+  const dial = p.locator('.inst');
   await dial.screenshot({path:'research/shots/sig-1-before.png'});
   out.before = await p.evaluate(()=>({n:document.querySelector('[data-out="num"]').textContent,
     unit:document.querySelector('[data-out="unit"]').textContent,
-    rule:document.querySelector('[data-out="rule"]').textContent.trim().slice(0,90),
-    beam:document.querySelector('[data-beam]').getAttribute('transform')}));
+    status:document.querySelector('[data-out="status"]').textContent,
+    rule:document.querySelector('[data-out="rule"]').textContent.trim().slice(0,90)}));
 
   // change the ARD so the two rules diverge, then capture mid-sweep and settled
   await p.evaluate(()=>{const e=document.querySelector('#f-ard'); e.value='2026-11-30'; e.dispatchEvent(new Event('change',{bubbles:true}));});
   await p.waitForTimeout(380);
   await dial.screenshot({path:'research/shots/sig-2-during.png'});
-  out.during = await p.evaluate(()=>({beam:document.querySelector('[data-beam]').getAttribute('transform')}));
+  out.during = await p.evaluate(()=>({remainW:document.querySelector('[data-el="remain"]').getAttribute('width')}));
   await p.waitForTimeout(1600);
   await dial.screenshot({path:'research/shots/sig-3-after.png'});
   out.after = await p.evaluate(()=>({n:document.querySelector('[data-out="num"]').textContent,
     unit:document.querySelector('[data-out="unit"]').textContent,
+    status:document.querySelector('[data-out="status"]').textContent,
     rule:document.querySelector('[data-out="rule"]').textContent.replace(/\s+/g,' ').trim().slice(0,220),
     live:document.querySelector('[data-out="live"]').textContent.trim(),
-    beam:document.querySelector('[data-beam]').getAttribute('transform'),
     altVisible:document.querySelector('[data-mk="alt"]').style.display!=='none'}));
 
   // an overdue company: the beam drops below the horizon and the penalty is live
@@ -37,8 +37,9 @@ const out = {};
   await dial.screenshot({path:'research/shots/sig-4-overdue.png'});
   out.overdue = await p.evaluate(()=>({n:document.querySelector('[data-out="num"]').textContent,
     unit:document.querySelector('[data-out="unit"]').textContent,
+    status:document.querySelector('[data-out="status"]').textContent,
     cost:document.querySelector('[data-out="cost"]').textContent,
-    beam:document.querySelector('[data-beam]').getAttribute('transform')}));
+    lateW:document.querySelector('[data-el="late"]').getAttribute('width')}));
   await ctx.close();
 }
 
@@ -49,9 +50,10 @@ const out = {};
   const errs=[]; p.on('pageerror',e=>errs.push(e.message));
   await p.goto(B+'/',{waitUntil:'load'}); await p.waitForTimeout(1800);
   out.reducedMotion = await p.evaluate(()=>{
-    const hidden=[...document.querySelectorAll('[data-anim],.hl__l,.cons__i')].filter(e=>getComputedStyle(e).opacity==='0'&&e.getBoundingClientRect().height>0).length;
+    const hidden=[...document.querySelectorAll('[data-anim],.hl__l,.cons__i,.card')]
+      .filter(e=>getComputedStyle(e).opacity==='0'&&e.getBoundingClientRect().height>0).length;
     return {hidden, num:document.querySelector('[data-out="num"]').textContent,
-      beam:document.querySelector('[data-beam]').getAttribute('transform'),
+      trackW:document.querySelector('[data-el="remain"]').getAttribute('width'),
       bodyClass:document.body.className};
   });
   await p.screenshot({path:'research/shots/reduced-motion.png'});
@@ -68,7 +70,7 @@ const out = {};
   const t = await p.locator('body').innerText();
   out.noJsWords = t.trim().split(/\s+/).length;
   out.noJsHasPhone = t.includes('+353 1 627 6627');
-  out.noJsHasHeadline = t.includes('Every company');
+  out.noJsHasHeadline = t.includes('We hold the statutory record');
   out.noJsHasRule = t.includes('56 days');
   await p.screenshot({path:'research/shots/no-js.png'});
   await ctx.close();
@@ -94,7 +96,7 @@ const out = {};
     seq.push(await p.evaluate(()=>{const a=document.activeElement; if(!a) return 'none';
       const s=getComputedStyle(a); const r=a.getBoundingClientRect();
       return {tag:a.tagName, txt:(a.textContent||a.value||'').replace(/\s+/g,' ').trim().slice(0,32),
-        outline:s.outlineStyle!=='none'&&parseFloat(s.outlineWidth)>0, inView:r.top>=-5&&r.top<innerHeight};}));
+        outline:(s.outlineStyle!=='none'&&parseFloat(s.outlineWidth)>0)||(s.boxShadow&&s.boxShadow!=='none'), inView:r.top>=-5&&r.top<innerHeight};}));
   }
   out.tabOrder = seq;
   out.focusVisibleAll = seq.every(s=>s==='none'||s.outline);

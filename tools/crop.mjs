@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({executablePath:process.cwd()+'/.chrome/chromium',args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage']});
+const w = +(process.argv[3]||390), h = +(process.argv[4]||844);
+const p = await (await b.newContext({viewport:{width:w,height:h},deviceScaleFactor:2})).newPage();
+await p.goto('http://127.0.0.1:8099/',{waitUntil:'load'});
+await p.waitForTimeout(2200);
+await p.locator('.inst').scrollIntoViewIfNeeded();
+await p.waitForTimeout(600);
+await p.locator('.inst').screenshot({path:'research/shots/'+(process.argv[2]||'panel')+'.png'});
+console.log('ok');
+await b.close();

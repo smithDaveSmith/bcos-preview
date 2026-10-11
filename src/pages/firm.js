@@ -7,14 +7,13 @@ const ppl = data('people');
 module.exports = function firm() {
   const years = new Date().getFullYear() - new Date(site.incorporated).getFullYear();
   const body = `
-<section class="sec sec--s" data-tone="night">
-  <div class="sec__glow" aria-hidden="true"></div>
+<section class="sec sec--open" data-tone="mist">
   <div class="wrap">
     <div class="open">
       <div>
-        <div class="sec__no" style="border-top:0"><span class="lab">The firm</span>${character(2)}</div>
-        <h1 class="d1" data-split style="margin-top:20px;max-width:17ch">${headline('Company secretarial|is not a sideline|here. It is the job.')}</h1>
-        <p class="lede" style="margin-top:24px;color:#A9B2C6;max-width:46ch">${typo('Beacon has been registered in Ireland since 2002. We are independent — not a department inside a law firm or an accountancy practice — which means the compliance work does not get deprioritised when something louder arrives.')}</p>
+        <p class="eyebrow">The firm</p>
+        <h1 class="d1" data-split style="margin-top:14px">${typo('Company secretarial is not a sideline here. It is the job.')}</h1>
+        <p class="lede" style="margin-top:24px;color:var(--body);max-width:46ch">${typo('Beacon has been registered in Ireland since 2002. We are independent — not a department inside a law firm or an accountancy practice — which means the compliance work does not get deprioritised when something louder arrives.')}</p>
       </div>
       ${bearing([
         ['Incorporated', '1 July 2002', true],
@@ -26,11 +25,11 @@ module.exports = function firm() {
   </div>
 </section>
 
-<section class="sec" data-tone="paper" aria-labelledby="f-what">
+<section class="sec"  aria-labelledby="f-what">
   <div class="wrap">
     <div class="cols cols--sb">
       <div>
-        <span class="lab">What we do</span>
+        <span class="eyebrow">What we do</span>
         <h2 id="f-what" class="d3" style="margin-top:16px;max-width:22ch">${typo('We hold the record, so you can run the business.')}</h2>
       </div>
       <div class="prose" data-anim="rise">
@@ -50,11 +49,11 @@ module.exports = function firm() {
   </div>
 </section>
 
-<section class="sec sec--l" data-tone="paper-2" id="team" aria-labelledby="f-ppl">
+<section class="sec sec--l" data-tone="mist" id="team" aria-labelledby="f-ppl">
   <div class="wrap">
     <div class="sec__head">
-      <div><div class="sec__no"><span class="lab">Our people</span>${character(2)}</div>
-      <h2 id="f-ppl" class="d2" data-split style="margin-top:18px">${headline('Four people.|You will know|which one files.')}</h2></div>
+      <div><p class="eyebrow">Our people</p>
+      <h2 id="f-ppl" class="d2" style="margin-top:18px">${typo('Four people. You will know which one files.')}</h2></div>
       <div data-anim="rise"><p class="lede">${typo('A small team is the point. There is no account manager between you and the person who prepares the minutes and makes the filing.')}</p></div>
     </div>
     <div class="ppl">
@@ -65,7 +64,7 @@ module.exports = function firm() {
           <h3 class="ppl__name">${esc(p.name)}</h3>
           <p class="ppl__role">${esc(p.role)}</p>
           ${p.credential ? `<p class="ppl__cred">${typo(esc(p.credential))}</p>` : ''}
-          <p class="ppl__mail"><a class="lnk" href="mailto:${esc(p.email)}"><span>${esc(p.email)}</span></a></p>
+          <p class="ppl__mail"><a class="lnk" href="mailto:${esc(p.email)}">${esc(p.email)}</a></p>
         </div>
         <div class="prose">
           ${p.body.map(b => `<p>${typo(esc(b))}</p>`).join('')}

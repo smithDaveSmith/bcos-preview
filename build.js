@@ -51,8 +51,7 @@ function assets() {
 
   /* Self-host the three variable fonts (latin subset). */
   const fonts = [
-    ['@fontsource-variable/bodoni-moda', 'bodoni-moda-latin-wght-normal.woff2', 'bodoni-moda.woff2'],
-    ['@fontsource-variable/public-sans', 'public-sans-latin-wght-normal.woff2', 'public-sans.woff2'],
+    ['@fontsource-variable/inter', 'inter-latin-wght-normal.woff2', 'inter.woff2'],
     ['@fontsource-variable/geist-mono', 'geist-mono-latin-wght-normal.woff2', 'geist-mono.woff2']
   ];
   const fto = path.join(OUT, 'assets', 'fonts');
@@ -65,15 +64,15 @@ function assets() {
     fbytes += fs.statSync(s).size;
   }
   fs.writeFileSync(path.join(fto, 'LICENSE.txt'),
-    'Bodoni Moda, Public Sans and Geist Mono are licensed under the SIL Open Font License 1.1.\nhttps://openfontlicense.org\n');
+    'Inter and Geist Mono are licensed under the SIL Open Font License 1.1.\nhttps://openfontlicense.org\n');
 
   /* Favicon: the mark, as a square-cropped beam. */
   fs.writeFileSync(path.join(OUT, 'assets', 'icon.svg'),
-`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44">
-<rect width="44" height="44" fill="#0E1626"/>
-<circle cx="22" cy="22" r="14" fill="none" stroke="#C09C60" stroke-width="1.2" opacity=".55"/>
-<path d="M22 22 L37 16 A16 16 0 0 1 37 28 Z" fill="#C09C60" opacity=".9"/>
-<circle cx="22" cy="22" r="3" fill="#C09C60"/>
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<rect width="32" height="32" rx="7" fill="#1B4DB1"/>
+<circle cx="11.5" cy="16" r="3.4" fill="#fff"/>
+<path d="M17.5 11.2A6.6 6.6 0 0 1 17.5 20.8" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path d="M21.8 8.4A11 11 0 0 1 21.8 23.6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".55"/>
 </svg>`);
   return { gsap: bytes, fonts: fbytes };
 }

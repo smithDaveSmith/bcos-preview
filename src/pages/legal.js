@@ -7,18 +7,18 @@ const site = data('site');
    pages preserve the URLs and point at the authoritative versions. */
 function legalStub(o) {
   const body = `
-<section class="sec sec--s" data-tone="night">
+<section class="sec sec--open" data-tone="mist">
   <div class="wrap">
-    <h1 class="d2" data-split style="max-width:18ch">${headline(o.heading)}</h1>
-    <p class="lede" style="margin-top:22px;color:#A9B2C6;max-width:56ch">${typo(o.lede)}</p>
+    <h1 class="d2" data-split >${headline(o.heading)}</h1>
+    <p class="lede" style="margin-top:22px;color:var(--body);max-width:56ch">${typo(o.lede)}</p>
   </div>
 </section>
-<section class="sec" data-tone="paper">
+<section class="sec" >
   <div class="wrap" style="max-width:760px">
     <div class="frm__demo">
       <p><b>Placeholder in this preview.</b> ${typo('This page exists so that the URL is preserved. The firm’s own ' + o.name + ' is legal text and has not been rewritten or reproduced here — it would have to be reviewed and carried across unchanged before any launch.')}</p>
     </div>
-    <p style="margin-top:26px"><a class="btn btn--ink" href="${o.liveUrl}" rel="noopener"><span>Read the current ${esc(o.name)} on bcos.ie</span></a></p>
+    <p style="margin-top:26px"><a class="btn btn--primary" href="${o.liveUrl}" rel="noopener">Read the current ${esc(o.name)} on bcos.ie</a></p>
     <div class="prose" style="margin-top:var(--sp-s)">
       <p>${typo(o.extra)}</p>
       <p>${typo('This preview sets no cookies and runs no analytics. It loads no third-party resources: the fonts and the animation library are served from the same origin as the page.')}</p>

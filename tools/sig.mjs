@@ -9,7 +9,7 @@ const read = ()=>p.evaluate(()=>({n:document.querySelector('[data-out="num"]').t
   u:document.querySelector('[data-out="unit"]').textContent,
   rule:document.querySelector('[data-out="rule"]').innerText.replace(/\s+/g,' ').trim(),
   cost:document.querySelector('[data-out="cost"]').textContent,
-  beam:document.querySelector('[data-beam]').getAttribute('transform')}));
+  rw:document.querySelector('[data-el="remain"]').getAttribute('width')}));
 console.log('BEFORE', JSON.stringify(await read()));
 // a company already past its deadline: the beam crosses the horizon
 await p.evaluate(()=>{const a=document.querySelector('#f-ard'); a.value='2026-01-31'; a.dispatchEvent(new Event('change',{bubbles:true}));

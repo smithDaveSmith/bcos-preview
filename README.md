@@ -10,17 +10,23 @@ and `robots.txt` disallows everything.
 A static site: 31 routes, no framework, no runtime dependencies, no third-party requests.
 Fonts and GSAP are self-hosted from `assets/`.
 
-The concept is **"Bearing & Interval"**: a beacon is identified by a fixed position and a timed
-interval, and so is a company's compliance position. The home page opens on a working instrument —
-a dial where the horizontal line *is* the filing deadline, the arc above it is the time remaining,
-the arc below it is the period over which the late-filing penalty accrues, and the beam points at
-today. It takes the visitor's annual return date and financial year end and works out which of the
-two statutory rules actually binds.
+**Visual direction** follows how this category actually presents itself. Three comparable sites
+were measured directly — Vistra, Diligent (the governance/entity-management SaaS) and Company
+Bureau (the direct Irish competitor) — and all three share: a white-dominant ground, one humanist
+sans, headings at 40–50px, a single saturated action colour, soft radii, and visible trust
+signals. This site adopts that register: white and cool-grey surfaces, Inter throughout, Geist
+Mono for every figure so data always reads as data, 8px radii, and one blue — `#1B4DB1`, the
+firm's own logo hue saturated to carry action.
+
+**What makes it specific to this firm** is not the styling but the content model: an annual
+return deadline checker that computes which of the two statutory rules actually binds, and a
+register of sixteen obligations, each individually addressable, each stating who it applies to,
+what triggers it, the deadline, and the consequence of missing it. No competitor has either.
 
 ## Build
 
 ```sh
-npm install          # gsap + the three variable fonts + playwright (dev only)
+npm install          # gsap + Inter + Geist Mono + playwright (dev only)
 node build.js        # writes docs/ for a user or organisation site
 BASE=/bcos-preview node build.js   # writes docs/ for a GitHub Pages *project* site
 ```
@@ -53,7 +59,7 @@ src/data/        nine JSON files — all site content and the statutory rules
 src/pages/       one module per page type
 src/assets/      css, js, fonts (copied to docs/assets at build)
 src/layout.js    page shell, header, footer, bearing panel
-src/instrument-svg.js   the dial, rendered at build time so it exists without JS
+src/instrument-svg.js   the deadline timeline, rendered at build time so it exists without JS
 build.js         generator
 docs/            build output, served by GitHub Pages
 ```

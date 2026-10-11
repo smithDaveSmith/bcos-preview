@@ -9,14 +9,13 @@ const statute = data('statute');
 
 function indexPage() {
   const body = `
-<section class="sec sec--s" data-tone="night">
-  <div class="sec__glow" aria-hidden="true"></div>
+<section class="sec sec--open" data-tone="mist">
   <div class="wrap">
     <div class="open">
       <div>
-        <div class="sec__no" style="border-top:0"><span class="lab">The register</span>${character(3)}</div>
-        <h1 class="d1" data-split style="margin-top:20px;max-width:16ch">${headline('What a company|owes, and when.')}</h1>
-        <p class="lede" style="margin-top:24px;color:#A9B2C6">${typo('Sixteen entries. Three of them have a statutory clock attached, and those are the ones that carry a penalty. Each entry says who it applies to, what sets it running, and what happens if it is missed.')}</p>
+        <p class="eyebrow">The register</p>
+        <h1 class="d1" data-split style="margin-top:14px">${typo('What a company owes, and when.')}</h1>
+        <p class="lede" style="margin-top:24px">${typo('Sixteen entries. Three of them have a statutory clock attached, and those are the ones that carry a penalty. Each entry says who it applies to, what sets it running, and what happens if it is missed.')}</p>
       </div>
       ${bearing([
         ['Entries', String(ob.entries.length), true],
@@ -28,7 +27,7 @@ function indexPage() {
   </div>
 </section>
 
-<section class="sec" data-tone="paper" aria-labelledby="reg-h">
+<section class="sec"  aria-labelledby="reg-h">
   <div class="wrap">
     <h2 id="reg-h" class="sr">All entries</h2>
     <div class="regbar" data-regbar>
@@ -45,7 +44,7 @@ function indexPage() {
         return `
       <section class="reg__grp" data-group="${esc(g.id)}" aria-labelledby="g-${esc(g.id)}">
         <div class="reg__grphd">
-          <span class="reg__grpn"><b>${esc(String(items.length).padStart(2, '0'))}</b>entries</span>
+          <span class="reg__grpn">${items.length} ${items.length === 1 ? 'entry' : 'entries'}</span>
           <h3 class="reg__grpt" id="g-${esc(g.id)}">${esc(g.label)}</h3>
           <p class="reg__grpl">${typo(esc(g.lede))}</p>
         </div>
@@ -56,11 +55,11 @@ function indexPage() {
   </div>
 </section>
 
-<section class="sec sec--l" data-tone="paper-2" aria-labelledby="sz">
+<section class="sec sec--l" data-tone="mist" aria-labelledby="sz">
   <div class="wrap">
     <div class="sec__head">
-      <div><span class="lab">Reference</span>
-      <h2 id="sz" class="d2" style="margin-top:18px">${headline('Company size|thresholds')}</h2></div>
+      <div><span class="eyebrow">Reference</span>
+      <h2 id="sz" class="d2" style="margin-top:18px">${typo('Company size thresholds')}</h2></div>
       <div data-anim="rise"><p class="lede">${typo(statute.sizeThresholds.note)}</p></div>
     </div>
     <div class="scroll-x" data-anim="rise">
@@ -100,7 +99,7 @@ function siblings(e) {
   if (items.length < 2) return '';
   return `
   <div class="sib" data-anim="rise">
-    <p class="lab">Also in ${esc(grp.label.toLowerCase())}</p>
+    <p class="eyebrow">Also in ${esc(grp.label.toLowerCase())}</p>
     <ul class="sib__l">
       ${items.map(x => x.slug === e.slug
         ? `<li class="sib__i sib__i--here"><span class="fig">${esc(x.folio)}</span><span>${esc(x.title)}</span><em>You are here</em></li>`
@@ -122,7 +121,7 @@ function entryPage(e, i, all) {
   const prev = all[i - 1], next = all[i + 1];
   const grp = ob.groups.find(g => g.id === e.group);
   const body = `
-<section class="sec sec--s ent__hd" data-tone="paper">
+<section class="sec sec--s ent__hd" >
   <div class="wrap">
     <nav aria-label="Breadcrumb"><ol class="ent__crumb">
       <li><a href="${url('/')}">Home</a></li><li aria-hidden="true">/</li>
@@ -150,31 +149,31 @@ function entryPage(e, i, all) {
   </div>
 </section>
 
-<section class="sec ent__body" data-tone="paper">
+<section class="sec ent__body" >
   <div class="wrap">
     <div class="ent__grid">
       <div class="prose">${e.body.map(p => `<p>${typo(esc(p))}</p>`).join('')}</div>
       <aside data-anim="rise">
         ${e.instrument ? `<div style="border-top:1px solid var(--rule-strong);padding-top:20px">
-          <p class="lab">Work out your date</p>
+          <p class="eyebrow">Work out your date</p>
           <p style="margin-top:12px;color:var(--fg-mute);font-size:15px;line-height:1.6">${typo('The dial on the home page takes your annual return date and your financial year end and tells you which of the two rules binds.')}</p>
-          <p style="margin-top:16px"><a class="lnk" href="${url('/')}#main"><span>Open the dial</span><em>&rarr;</em></a></p>
+          <p style="margin-top:16px"><a class="lnk" href="${url('/')}#main">Open the dial <em>&rarr;</em></a></p>
         </div>` : ''}
         ${e.action ? `<div style="border-top:1px solid var(--rule-strong);padding-top:20px;margin-top:${e.instrument ? '26px' : '0'}">
-          <p class="lab">${esc(e.action.label)}</p>
+          <p class="eyebrow">${esc(e.action.label)}</p>
           <p style="margin-top:12px;color:var(--fg-mute);font-size:15px;line-height:1.6">${typo(esc(e.action.note))}</p>
-          <p style="margin-top:16px"><a class="lnk" href="${url('/incorporate/')}"><span>Company types and forms</span><em>&rarr;</em></a></p>
+          <p style="margin-top:16px"><a class="lnk" href="${url('/incorporate/')}">Company types and forms <em>&rarr;</em></a></p>
         </div>` : ''}
         <div style="border-top:1px solid var(--rule-strong);padding-top:20px;margin-top:26px">
-          <p class="lab">Ask about this</p>
-          <p style="margin-top:14px"><a class="btn btn--ink" href="${url('/contact/')}?subject=${encodeURIComponent(e.title)}"><span>Get in touch</span></a></p>
+          <p class="eyebrow">Ask about this</p>
+          <p style="margin-top:14px"><a class="btn btn--primary" href="${url('/contact/')}?subject=${encodeURIComponent(e.title)}">Get in touch</a></p>
         </div>
       </aside>
     </div>
 
     <div class="ent__nav">
-      ${prev ? `<a class="lnk" href="${url('/services/' + prev.slug + '/')}"><em>&larr;</em><span>${esc(prev.title)}</span></a>` : '<span></span>'}
-      ${next ? `<a class="lnk" href="${url('/services/' + next.slug + '/')}"><span>${esc(next.title)}</span><em>&rarr;</em></a>` : '<span></span>'}
+      ${prev ? `<a class="lnk" href="${url('/services/' + prev.slug + '/')}"><em>&larr;</em> ${esc(prev.title)}</a>` : '<span></span>'}
+      ${next ? `<a class="lnk" href="${url('/services/' + next.slug + '/')}">${esc(next.title)} <em>&rarr;</em></a>` : '<span></span>'}
     </div>
   </div>
 </section>`;

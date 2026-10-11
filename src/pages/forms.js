@@ -9,18 +9,18 @@ const types = data('company-types');
    real form rather than imitating it. */
 function stub(o) {
   const body = `
-<section class="sec sec--s" data-tone="night">
+<section class="sec sec--open" data-tone="mist">
   <div class="wrap">
     <nav aria-label="Breadcrumb"><ol class="ent__crumb" style="margin-bottom:22px">
       <li><a href="${url('/')}">Home</a></li><li aria-hidden="true">/</li>
       <li><a href="${url('/incorporate/')}">Incorporate</a></li>
     </ol></nav>
     <h1 class="d2" data-split style="max-width:20ch">${headline(o.heading)}</h1>
-    <p class="lede" style="margin-top:22px;color:#A9B2C6;max-width:56ch">${typo(o.lede)}</p>
+    <p class="lede" style="margin-top:22px;color:var(--body);max-width:56ch">${typo(o.lede)}</p>
   </div>
 </section>
 
-<section class="sec" data-tone="paper">
+<section class="sec" >
   <div class="wrap">
     <div class="cols cols--sb">
       <div>
@@ -29,14 +29,14 @@ function stub(o) {
           <p style="margin-top:.7em">${typo('The live form at ' + o.liveUrl.replace('https://www.', '') + ' collects director, secretary, member and identification details and is the firm’s own authorised destination. It is not reproduced here, because a form that collects personal data belongs on the real site and nowhere else.')}</p>
         </div>
         <p style="margin-top:26px">
-          <a class="btn btn--ink btn--lg" href="${o.liveUrl}" rel="noopener"><span>Open the live form on bcos.ie</span></a>
+          <a class="btn btn--primary btn--lg" href="${o.liveUrl}" rel="noopener">Open the live form on bcos.ie</a>
         </p>
         <p style="margin-top:18px;font-size:14.5px;color:var(--fg-mute)">
-          ${typo('Prefer to talk it through first? ')}<a class="lnk" href="${url('/contact/')}"><span>Contact the firm</span></a>
+          ${typo('Prefer to talk it through first? ')}<a class="lnk" href="${url('/contact/')}">Contact the firm</a>
         </p>
       </div>
       <div data-anim="rise">
-        <p class="lab">What the form asks for</p>
+        <p class="eyebrow">What the form asks for</p>
         <div class="ent__facts" style="margin-top:16px">
           ${o.asks.map(a => `<div class="ent__f"><span class="ent__fk">${esc(a[0])}</span><span class="ent__fv">${typo(esc(a[1]))}</span></div>`).join('')}
         </div>

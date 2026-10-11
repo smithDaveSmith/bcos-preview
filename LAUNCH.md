@@ -47,8 +47,11 @@ need a decision or a source from Beacon.
 
 The firm's only images are four 150×150px headshots, a logo, and a stock cityscape. Rather than
 fill the design with stock photography that misrepresents the premises or the team, the design
-treats drawn data as the image material: the dial, the penalty curve, the ruled register. This is
-a deliberate choice, not an omission, and it means the site is honest about what it shows.
+treats drawn data as the image material: the deadline timeline, the penalty chart, the register.
+This is a deliberate choice, not an omission, and it means the site is honest about what it shows.
+
+That said, this category does use photography — Company Bureau leads with a photo of real staff
+and a 4.8/5 rating. Item 6 above is the highest-value thing the client could supply.
 
 ## Corrections made to existing content
 
