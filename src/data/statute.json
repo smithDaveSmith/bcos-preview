@@ -1,0 +1,56 @@
+{
+  "annualReturn": {
+    "label": "Annual return and financial statements",
+    "ardWindowDays": 56,
+    "fyeMonths": 9,
+    "fyeWindowDays": 56,
+    "rule": "The annual return must reach the CRO within 56 days of the company's annual return date. Where financial statements are attached, the deadline is the earlier of two dates: the annual return date plus 56 days, or the financial year end plus nine months plus 56 days.",
+    "source": { "label": "CRO — Missed deadlines", "url": "https://cro.ie/annual-return/missed-deadlines" },
+    "firstReturn": {
+      "months": 6,
+      "note": "A company's first annual return falls due six months after incorporation."
+    }
+  },
+  "penalty": {
+    "initial": 100,
+    "daily": 3,
+    "max": 1200,
+    "filingFee": 20,
+    "rule": "A late annual return carries a penalty of €100 from the day after the deadline, increasing by €3 for each further day, to a maximum of €1,200 per return. The €20 filing fee is separate.",
+    "source": { "label": "CRO — Missed deadlines", "url": "https://cro.ie/annual-return/missed-deadlines" }
+  },
+  "auditExemption": {
+    "rule": "Under section 22 of the Companies (Corporate Governance, Enforcement and Regulatory Provisions) Act 2024, a company loses the audit exemption if it files late more than once in a five-year period.",
+    "supersedes": "This replaced the earlier position, under which a single late filing cost the exemption for the following two years.",
+    "source": { "label": "CRO — Missed deadlines", "url": "https://cro.ie/annual-return/missed-deadlines" }
+  },
+  "consequences": [
+    { "id": "penalty", "title": "Late filing penalty", "detail": "€100 the day after the deadline, then €3 per day, capped at €1,200 per return." },
+    { "id": "audit", "title": "Loss of audit exemption", "detail": "Lost where a company files late more than once in a five-year period." },
+    { "id": "prosecution", "title": "Prosecution of the company and its directors", "detail": "Failure to file is an offence under section 871 of the Companies Act 2014, with a Class A fine of up to €5,000 on summary conviction. The CRO may also impose an on-the-spot fine for persistent late filing." },
+    { "id": "strikeoff", "title": "Involuntary strike-off", "detail": "The Registrar may begin strike-off proceedings. Once dissolved, company assets vest in the Minister for Public Expenditure and directors may be personally liable for debts incurred while the company stands dissolved." }
+  ],
+  "rbo": {
+    "newCompanyMonths": 5,
+    "changeDays": 14,
+    "rule": "A newly incorporated company has five months from incorporation to file its beneficial ownership details. Any change to the beneficial owners must be filed within 14 days.",
+    "basis": "Article 30 of the EU's Fourth Anti-Money Laundering Directive, transposed by the Criminal Justice (Money Laundering and Terrorist Financing) Act 2010, as amended in 2018.",
+    "source": { "label": "Register of Beneficial Ownership", "url": "https://rbo.gov.ie/" }
+  },
+  "strikeOff": {
+    "assetsLimit": 150,
+    "revenueLetterMonths": 3,
+    "advertisementDays": 30,
+    "rule": "Voluntary strike-off requires all outstanding annual returns to be delivered, assets and liabilities of not more than €150, a letter of no objection from the Revenue Commissioners dated within the previous three months, and a notice of intention advertised in a daily national newspaper within the 30 days before the application."
+  },
+  "sizeThresholds": {
+    "note": "Thresholds raised by 25% by the European Union (Adjustments of Size Criteria for Certain Companies and Groups) Regulations 2024, in force 1 July 2024 and applying to financial years commencing on or after 1 January 2024.",
+    "rows": [
+      { "size": "Micro", "balanceSheet": "€450,000", "turnover": "€900,000", "employees": "10" },
+      { "size": "Small", "balanceSheet": "€7.5m", "turnover": "€15m", "employees": "50" },
+      { "size": "Medium", "balanceSheet": "€25m", "turnover": "€50m", "employees": "250" },
+      { "size": "Large", "balanceSheet": "above €25m", "turnover": "above €50m", "employees": "above 250" }
+    ],
+    "footnote": "A company is classified by size where it meets two of the three criteria. Micro and small companies may qualify for audit exemption."
+  }
+}

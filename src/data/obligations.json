@@ -1,0 +1,269 @@
+{
+  "groups": [
+    { "id": "formation", "label": "Formation", "lede": "Bringing a company into existence and giving it the two things the State requires it to have: an address and a secretary." },
+    { "id": "standing", "label": "Standing obligations", "lede": "The work that recurs. These are the entries with a clock attached, and the ones that carry a penalty when they are missed." },
+    { "id": "change", "label": "Changes to the record", "lede": "A company changes constantly — its people, its name, its shares, its constitution. Each change has to be minuted, recorded and notified." },
+    { "id": "ending", "label": "Ending", "lede": "Closing a company down cleanly, so that it does not end up struck off with liabilities outstanding." }
+  ],
+  "entries": [
+    {
+      "folio": "01", "slug": "incorporation", "group": "formation",
+      "title": "Incorporation of a new company",
+      "lede": "Choosing the right company type, preparing the constitution and the statutory documentation, and completing the registration with the Companies Registration Office.",
+      "applies": "Anyone setting up a business in the Republic of Ireland",
+      "trigger": "Before trading begins",
+      "clock": null,
+      "clockNote": "No statutory clock — but the first annual return falls due six months after incorporation, and the beneficial ownership filing five months after.",
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "The first decision is which company type to incorporate, and it is not a formality. The business activities you intend to carry on and the corporate structure you already have determine whether a private company limited by shares, a designated activity company, a company limited by guarantee or an unlimited company is the right vehicle. Each carries a different minimum number of directors, a different position on whether the secretary may also be a director, and a different exposure for the members.",
+        "We advise on the type that suits the structure, prepare all of the incorporation documentation, and deal with the Companies Registration Office through to the issue of the certificate of incorporation.",
+        "We can also arrange incorporations in jurisdictions outside the Republic of Ireland where a group structure requires it."
+      ],
+      "action": { "label": "Start an incorporation", "note": "Four live application forms — one per company type." }
+    },
+    {
+      "folio": "02", "slug": "registered-office", "group": "formation",
+      "title": "Registered office services",
+      "lede": "A registered office in Dublin for your company, with post forwarded in whatever manner you specify.",
+      "applies": "Every Irish registered company",
+      "trigger": "From incorporation, and continuously thereafter",
+      "clock": null,
+      "clockNote": "The registered office must exist at all times. A change of address must be notified to the CRO.",
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "Every company registered in Ireland must maintain a registered office in the State. It is the address at which the company can be served, and the address the public register will show.",
+        "We provide a registered office in Dublin, including the onward forwarding of post in the manner you specify. We can also provide a registered office in the United Kingdom and in other overseas jurisdictions, depending on where the company is incorporated.",
+        "Where you are moving your registered office, we prepare and file the statutory documentation recording the change."
+      ]
+    },
+    {
+      "folio": "03", "slug": "company-secretary", "group": "formation",
+      "title": "Provision of company secretary",
+      "lede": "Beacon acts as the named company secretary, attends board meetings, prepares the minutes and advises on company law and corporate governance.",
+      "applies": "Every Irish company. For a single-director company, the secretary must be a different individual or a corporate body.",
+      "trigger": "From incorporation, and continuously thereafter",
+      "clock": null,
+      "clockNote": "A company must have a secretary at all times.",
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "Every Irish company must have a company secretary. Where a company has a sole director, that director cannot also be the secretary — the role must be filled by another individual or by a corporate body.",
+        "You can engage us to act as the named company secretary. We have the expertise required for the role: we attend meetings of the board, prepare the minutes of those meetings, and advise on all matters of company law and corporate governance as they arise.",
+        "In practice this is the service that removes the most risk, because the obligations in this register stop being something you have to remember."
+      ]
+    },
+    {
+      "folio": "04", "slug": "annual-return", "group": "standing",
+      "title": "Annual return and compliance filings",
+      "lede": "The annual return and financial statements, filed on time, every year, with the accountant kept in the loop.",
+      "applies": "Every company registered in Ireland, whether it has traded or not",
+      "trigger": "The company's annual return date, every year",
+      "clock": "Within 56 days of the annual return date — or the financial year end plus nine months plus 56 days, whichever falls earlier.",
+      "clockNote": "A company's first annual return falls due six months after incorporation.",
+      "consequence": "€100 the day after the deadline, then €3 a day to a maximum of €1,200. Audit exemption is lost where a company files late more than once in a five-year period. Failure to file is an offence and can lead to involuntary strike-off.",
+      "authority": "Companies Act 2014 · CRO",
+      "instrument": true,
+      "body": [
+        "Every Irish registered company must file an annual return with the Companies Registration Office each year, regardless of whether it has traded or lain dormant. The return sets out the directors, the secretary and the shareholdings as at the date of the return, and in most cases the financial statements go with it.",
+        "The deadline is the part people get wrong. It is not simply the annual return date. Where financial statements are attached, the filing deadline is the earlier of two dates: the annual return date plus 56 days, or the financial year end plus nine months plus 56 days. For companies whose year end sits well before their annual return date, the second rule bites first — and it is routinely missed.",
+        "We file the annual return, liaise with your accountant so that the financial statements are ready in time, and prepare the annual general meeting documentation required to approve and receive the accounts."
+      ],
+      "action": { "label": "Check your deadline", "note": "Set your dates on the instrument and see which rule applies to you." }
+    },
+    {
+      "folio": "05", "slug": "statutory-registers", "group": "standing",
+      "title": "Creation and maintenance of company registers",
+      "lede": "The statutory register, set up properly and kept current as directors, secretaries, addresses, shareholdings and beneficial owners change.",
+      "applies": "Every Irish registered company",
+      "trigger": "On every change to the company's people, address or shares",
+      "clock": null,
+      "clockNote": "The register must be kept up to date and available at the registered office or another nominated address in the State.",
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "The statutory register is the company's own record of itself. It may be kept electronically or in hard copy, at the registered office or at another nominated address in Ireland, and it must be kept up to date with every change made in the company — directors, secretary, registered office, shareholdings and beneficial ownership.",
+        "In practice the register is the document that is asked for at exactly the wrong moment: during due diligence, on a sale, when a bank or an insurer asks, or when the auditor arrives. A register that has drifted out of date takes far longer to reconstruct than it would have taken to maintain.",
+        "We set the register up and maintain it on the company's behalf, so that what the register says and what the CRO holds remain the same document."
+      ]
+    },
+    {
+      "folio": "06", "slug": "beneficial-ownership", "group": "standing",
+      "title": "Register of beneficial ownership",
+      "lede": "Filing and maintaining the company's beneficial ownership details on the central register, and keeping the company's own internal RBO register.",
+      "applies": "Every company registered in Ireland",
+      "trigger": "Incorporation, and every change of beneficial owner",
+      "clock": "Five months from incorporation for a new company. Fourteen days for any change of beneficial owner.",
+      "clockNote": "The company must also keep its own internal beneficial ownership register within its statutory register.",
+      "consequence": "Failure to comply can result in the Registrar commencing prosecution proceedings against the company.",
+      "authority": "4AMLD Art. 30 · Criminal Justice (Money Laundering and Terrorist Financing) Act 2010, as amended 2018",
+      "body": [
+        "Article 30 of the European Union's Fourth Anti-Money Laundering Directive requires Member States to oblige corporate entities to obtain and hold information on their beneficial owners in a central register. The Criminal Justice (Money Laundering and Terrorist Financing) Act 2010, as amended in 2018, transposes the substance of that directive into Irish law.",
+        "Every company registered in Ireland must therefore record the details of its ultimate beneficial owners at the Register of Beneficial Ownership. A newly incorporated company has five months from the date of incorporation to do so. Any subsequent change in the ultimate beneficial owners must be recorded within 14 days of the change.",
+        "The 14-day window is short, and it starts running from the change itself rather than from the moment anyone notices it. We file the information, keep it current, and maintain the company's own internal register alongside it."
+      ]
+    },
+    {
+      "folio": "07", "slug": "secretarial-audit", "group": "standing",
+      "title": "Company secretarial audit and review",
+      "lede": "A full review of the company's regulatory and procedural position against current legislation and best practice.",
+      "applies": "Companies that have grown, changed hands, changed advisers, or lost track",
+      "trigger": "Before a transaction, an audit, or a change of adviser — or when nobody is certain the record is complete",
+      "clock": null,
+      "clockNote": null,
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "A company secretarial audit establishes what the record actually says, as against what everyone assumes it says. We review the statutory registers, the filing history at the CRO, the beneficial ownership position, the constitution and the minute book, and we report on where they disagree with each other or with current legislation.",
+        "This is the right first step where a company has changed advisers, grown quickly, been through a share reorganisation, or simply gone a number of years without anyone looking at the register as a whole.",
+        "The output is a list of what is missing and what it takes to put it right. Most of it is ordinary remedial filing work."
+      ]
+    },
+    {
+      "folio": "08", "slug": "director-changes", "group": "change",
+      "title": "Appointment, resignation and removal of directors and secretary",
+      "lede": "Minuting the change, notifying the Registrar and updating the statutory register — the three steps that have to happen together.",
+      "applies": "Every Irish registered company",
+      "trigger": "Any appointment, resignation or removal",
+      "clock": null,
+      "clockNote": "Appointments and resignations must be notified to the Registrar of Companies in a timely manner.",
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "Over the life of a company there may be many changes to its officers. Each one must be minuted, notified to the Registrar of Companies in a timely manner, and recorded in the company's statutory register. Those are three separate acts, and a change is not complete until all three have happened.",
+        "The common failure is a resignation that was agreed in a meeting, acted upon in practice, and never filed — leaving a person on the public register as a director of a company they left years earlier, with the exposure that implies.",
+        "We prepare the board minutes, file the statutory documentation with the CRO, and maintain the company register on your behalf."
+      ]
+    },
+    {
+      "folio": "09", "slug": "business-name", "group": "change",
+      "title": "Registration of a business name",
+      "lede": "Registering the name a company or an individual actually trades under, where it differs from the registered name.",
+      "applies": "A company or individual trading under a name other than its registered name",
+      "trigger": "Before trading under the new name",
+      "clock": null,
+      "clockNote": null,
+      "consequence": null,
+      "authority": "Registration of Business Names Act 1963",
+      "body": [
+        "A company or an individual can apply to register a business name under which it proposes to operate. A company commonly needs this where it intends to trade under a name different from the one on its certificate of incorporation.",
+        "Registering a business name does not create a separate legal entity, and it does not give the same protection as a company name. It records that a given legal person trades under a given name.",
+        "We complete the paperwork required to register the business name."
+      ]
+    },
+    {
+      "folio": "10", "slug": "company-name-change", "group": "change",
+      "title": "Change of company name",
+      "lede": "Members' approval, a new constitution carrying the new name, and a change of name certificate from the Registrar.",
+      "applies": "Any company changing its registered name",
+      "trigger": "On a decision to change the name",
+      "clock": null,
+      "clockNote": "The Registrar will issue the certificate provided the name is available and no similar name is already registered.",
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "A company's name can be changed during its lifetime with the approval of the members. The members must also consent to the adoption of a new constitution carrying the proposed new name — the two go together.",
+        "The Registrar of Companies will issue a change of name certificate provided the name is available and a similar name is not already on the register. Availability is the step worth checking first, because it determines whether the rest of the process is worth starting.",
+        "We prepare the documentation required to change the name and deal with the Companies Registration Office."
+      ]
+    },
+    {
+      "folio": "11", "slug": "constitution", "group": "change",
+      "title": "Alterations to the company constitution",
+      "lede": "Drafting and adopting a revised constitution, and filing it with the Companies Registration Office.",
+      "applies": "Any company whose share structure, share classes or governance arrangements are changing",
+      "trigger": "A change in share capital, a redemption, a new share class, or the creation of a golden share",
+      "clock": null,
+      "clockNote": null,
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "It becomes necessary to revise the constitution more often than owners expect. A change in the share capital, a redemption of shares, the issue of a new class or classes of shares, or the putting in place of a golden share will each generally require it.",
+        "We have extensive experience drafting new constitutions for clients, and the drafting matters: a constitution that does not permit what the company later wants to do has to be amended before the company can do it, which costs time at exactly the point when time is short.",
+        "We prepare the documentation and organise the filings required at the Companies Registration Office."
+      ]
+    },
+    {
+      "folio": "12", "slug": "share-capital", "group": "change",
+      "title": "Changes in share capital",
+      "lede": "Allotments, transfers, new share classes and the filings and register updates that follow them.",
+      "applies": "Any company issuing, transferring or restructuring shares",
+      "trigger": "An allotment, a transfer, or the creation of a new share class",
+      "clock": null,
+      "clockNote": "An allotment must be notified to the CRO, and the register of members and the beneficial ownership position updated. A transfer may attract stamp duty.",
+      "consequence": null,
+      "authority": "Companies Act 2014, s. 69",
+      "body": [
+        "A company can change its share capital and its shareholders in a number of ways: by creating a new share class, by allotting new shares, or by a transfer of existing shares.",
+        "Section 69 of the Companies Act 2014 confers authority on the directors to allot shares, and any allotment must be approved by them. The Companies Registration Office must be notified, and the register of members and the register of beneficial ownership updated accordingly. A transfer must likewise be approved by the directors, the transfer documentation completed, and stamp duty paid to the Revenue Commissioners where it is due.",
+        "Before any new allotment the constitution needs reviewing: the pre-emption rights that apply, the rights to be attached to the new shares, and any premium on the allotment all have to be settled first. We prepare the documentation, make the filings, and update the registers."
+      ]
+    },
+    {
+      "folio": "13", "slug": "golden-share", "group": "change",
+      "title": "Golden share",
+      "lede": "Creating a share that controls the composition of the board — commonly used to form a group structure for intercompany lending.",
+      "applies": "Groups putting a holding structure in place",
+      "trigger": "On establishing or restructuring a group",
+      "clock": null,
+      "clockNote": null,
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "The holder of a golden share has the right to control the composition of the board of directors. It is often the simplest way to create a group structure in order to facilitate intercompany lending.",
+        "One point is worth stating plainly, because it is frequently assumed otherwise: a golden share does not place the companies into a tax group. It is a company law instrument, and the tax position is a separate question for your tax adviser.",
+        "We prepare the documentation required to create the golden share, including the updated constitution and the filings for the Companies Registration Office."
+      ]
+    },
+    {
+      "folio": "14", "slug": "share-buyback", "group": "change",
+      "title": "Redemption and buyback of shares",
+      "lede": "A company acquiring its own shares — subject to distributable reserves and to the constitution permitting it.",
+      "applies": "Companies buying back or redeeming shares from an existing shareholder",
+      "trigger": "On an agreed exit or reorganisation",
+      "clock": null,
+      "clockNote": "A buyback contract must be available for inspection by the members.",
+      "consequence": null,
+      "authority": "Companies Act 2014",
+      "body": [
+        "A company may acquire its own shares from an existing shareholder by purchase, or in the case of redeemable shares by redemption or purchase. It can only do so where it has sufficient distributable reserves — profits available for distribution, or the proceeds of a fresh issue of shares made for the purpose of the acquisition. A redemption must be authorised by the constitution.",
+        "A buyback involves executing a contract with the shareholder, and that contract must be available for inspection by the members.",
+        "We prepare the necessary documentation and make the filings at the Companies Registration Office."
+      ]
+    },
+    {
+      "folio": "15", "slug": "re-registration", "group": "change",
+      "title": "Re-registration of a company",
+      "lede": "Converting from one company type to another — no longer requiring High Court approval.",
+      "applies": "Companies changing type, for example from an LTD to an unlimited company or a DAC",
+      "trigger": "On a decision to change company type",
+      "clock": null,
+      "clockNote": "An application to re-register a private company limited by shares as an unlimited company requires accounts to have been filed within the previous three months.",
+      "consequence": null,
+      "authority": "Companies Act 2014, Part 20",
+      "body": [
+        "A company can re-register from one type to another under Part 20 of the Companies Act 2014. The requirement to obtain High Court approval for a re-registration no longer applies.",
+        "The requirements differ according to the type you are converting to. An application to re-register a private company limited by shares as an unlimited company has a specific condition: the company must have filed its accounts within the three months before the application is made.",
+        "We advise on which company type suits your requirements, prepare the documentation for the application, and ensure the submission reaches the Companies Registration Office in time."
+      ]
+    },
+    {
+      "folio": "16", "slug": "strike-off", "group": "ending",
+      "title": "Cessation of a company",
+      "lede": "Voluntary strike-off for a company that has ceased to trade or never traded — or an introduction to a liquidator where that is the better route.",
+      "applies": "Companies that have ceased trading or never traded",
+      "trigger": "Once the company has stopped trading and its affairs are settled",
+      "clock": "The Revenue letter of no objection must be dated within three months of the application. The newspaper notice must be placed within the 30 days before it.",
+      "clockNote": "Obtaining the Revenue letter has been taking roughly 12 weeks, so an annual return date falling inside that window needs planning for.",
+      "consequence": "A company left non-compliant rather than closed properly may be struck off involuntarily, with the consequences that carries for its directors.",
+      "authority": "Companies Act 2014",
+      "body": [
+        "Where a company has ceased to trade, or has never traded at all, it can apply to the Registrar to be voluntarily struck off the register. Four conditions must be satisfied: all outstanding annual returns delivered to the CRO; assets and liabilities of not more than €150; a letter of no objection from the Revenue Commissioners dated no more than three months before the application; and a notice of intention advertised in one daily national newspaper no more than 30 days before it.",
+        "The sequencing is the difficult part. The Revenue letter has been taking around twelve weeks to obtain, and it expires three months after it is issued, so the whole application has to be planned backwards from it — and a company whose annual return date falls inside that window still has to file.",
+        "Alternatively the company can be liquidated, and we can put you in contact with a liquidator. We prepare the application to the Companies Registration Office to strike the company off."
+      ]
+    }
+  ]
+}

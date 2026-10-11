@@ -1,0 +1,21 @@
+{
+  "name": "bcos-preview",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unofficial concept preview for Beacon Company Secretaries (bcos.ie)",
+  "scripts": {
+    "build": "node build.js",
+    "build:pages": "BASE=/bcos-preview node build.js",
+    "serve": "node tools/serve.mjs docs 8099",
+    "verify": "node tools/verify.mjs",
+    "audit": "node tools/audit2.mjs",
+    "states": "node tools/states.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/bodoni-moda": "5.3.0",
+    "@fontsource-variable/geist-mono": "5.3.0",
+    "@fontsource-variable/public-sans": "5.3.0",
+    "gsap": "3.15.0",
+    "playwright": "^1.56.0"
+  }
+}

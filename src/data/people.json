@@ -1,0 +1,48 @@
+{
+  "note": "Bios condensed from bcos.ie/newaboutus/. Professional detail retained; personal-interest detail reduced to one line each with the client's permission to be confirmed before go-live.",
+  "people": [
+    {
+      "slug": "carol-dwyer", "name": "Carol Dwyer", "role": "Principal",
+      "email": "cdwyer@bcos.ie", "joined": 2011,
+      "credential": "Certified by The Chartered Governance Institute · Graduate of LSB Dublin",
+      "lede": "Leads the team at the Dublin office. Joined Beacon in 2011 and has spent her career in company secretarial practice on both sides of the Irish Sea.",
+      "body": [
+        "Carol is vastly experienced in the company secretarial arena and leads the team at head office. Before joining Beacon she spent many years in London in a range of company secretarial roles.",
+        "Since returning to Ireland in 1997 she has worked with PricewaterhouseCoopers and with Hewlett-Packard International Bank plc. She is a graduate of LSB Dublin and is certified by The Chartered Governance Institute."
+      ],
+      "aside": "Outside work: heavily involved with St. Peter's GAA, a keen runner, and three marathons in the last five years."
+    },
+    {
+      "slug": "sharon-spendlove", "name": "Sharon Spendlove", "role": "Company secretarial",
+      "email": "sspendlove@bcos.ie", "joined": 2015,
+      "credential": "LLB (Hons), University of Cardiff",
+      "lede": "Over ten years in company secretarial practice, with responsibility for both international and domestic clients across all aspects of corporate compliance.",
+      "body": [
+        "Sharon joined Beacon in 2015. She has worked for more than ten years in the company secretarial environment and has a broad knowledge of the compliance area, with responsibility for both international and domestic clients.",
+        "She studied law and was conferred with an LLB (Hons) from the University of Cardiff, and worked in a number of legal practices before finding company law and company management."
+      ],
+      "aside": "Outside work: a dedicated walker, often 50km a week, and a long-standing fundraiser for humanitarian causes at home and abroad."
+    },
+    {
+      "slug": "johnathon-pearl", "name": "Johnathon Pearl", "role": "Company secretarial",
+      "email": "jpearl@bcos.ie", "joined": 2024,
+      "credential": "Studying with the Corporate Governance Institute",
+      "lede": "Joined Beacon in 2024 and is currently undertaking a course with the Corporate Governance Institute.",
+      "body": [
+        "Johnathon joined the team at Beacon in 2024, confirming a long-standing interest in company secretarial law and practice. He previously studied journalism at Technological University Dublin and is currently undertaking a course with the Corporate Governance Institute."
+      ],
+      "aside": "Outside work: Gaelic football with St. Peter's in Dunboyne, golf, and a well-documented commitment to Wolverhampton Wanderers."
+    },
+    {
+      "slug": "emma-dwyer", "name": "Emma Dwyer", "role": "Financial administration",
+      "email": "edwyer@bcos.ie", "joined": 2020,
+      "credential": null,
+      "lede": "Looks after financial administration, and makes sure the firm's work is delivered on time and on budget.",
+      "body": [
+        "Emma joined Beacon in 2020 and looks after financial administration. She keeps the practice running — making sure services are delivered on time and on budget.",
+        "She studied culinary arts at Athlone IT and had a successful career as a chef before joining the firm."
+      ],
+      "aside": "Outside work: a coach with the underage section at St. Peter's GAA, Dunboyne, and a dedicated follower of Meath hurling, football and camogie."
+    }
+  ]
+}

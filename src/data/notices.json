@@ -1,0 +1,103 @@
+{
+  "note": "Every item below is a restatement of a rule verified against the source named on it. Nothing here is a fabricated event or announcement. Items drawn from the client's existing news page are marked, and two of them required factual correction.",
+  "reviewed": "2026-10-10",
+  "items": [
+    {
+      "id": "audit-exemption",
+      "status": "current",
+      "corrected": true,
+      "kicker": "Correction",
+      "title": "A single late filing no longer costs you the audit exemption",
+      "date": "2026-10-10",
+      "dateLabel": "Reviewed October 2026",
+      "summary": "Under section 22 of the Companies (Corporate Governance, Enforcement and Regulatory Provisions) Act 2024, audit exemption is lost where a company files late more than once in a five-year period — not on a single late filing.",
+      "body": [
+        "The rule that applied for years was blunt: file the annual return late, and the company lost its audit exemption for the two following financial years. One slip, two years of audit.",
+        "That is no longer the position. Section 22 of the Companies (Corporate Governance, Enforcement and Regulatory Provisions) Act 2024 changed it, and the CRO now states the rule as follows: a company cannot avail of the audit exemption where it files late more than once within a five-year period.",
+        "This is a real relief for a company that has had one bad year, and it is worth knowing before you resign yourself to an audit you may not need. It changes nothing about the late filing penalty itself, which still runs from €100 to €1,200, and nothing about the prosecution and strike-off exposure."
+      ],
+      "source": { "label": "CRO — Missed deadlines", "url": "https://cro.ie/annual-return/missed-deadlines" }
+    },
+    {
+      "id": "two-deadlines",
+      "status": "current",
+      "kicker": "The rule people miss",
+      "title": "Your filing deadline may not be the one you have in your diary",
+      "date": "2026-10-10",
+      "dateLabel": "Reviewed October 2026",
+      "summary": "Where financial statements are attached, the deadline is the earlier of the annual return date plus 56 days, or the financial year end plus nine months plus 56 days.",
+      "body": [
+        "Most directors know the 56-day rule: the annual return has to reach the CRO within 56 days of the company's annual return date. Fewer know there is a second rule running alongside it.",
+        "Where financial statements must be attached, the deadline is the earlier of two dates — the annual return date plus 56 days, or the financial year end plus nine months plus 56 days. For a company whose financial year end sits well in advance of its annual return date, the second calculation produces the earlier date, and that is the one that binds.",
+        "If you have never checked which of the two applies to your company, the instrument on our home page will work it out from your two dates."
+      ],
+      "source": { "label": "CRO — Missed deadlines", "url": "https://cro.ie/annual-return/missed-deadlines" }
+    },
+    {
+      "id": "size-thresholds",
+      "status": "current",
+      "fromClient": true,
+      "corrected": true,
+      "kicker": "Thresholds",
+      "title": "Size thresholds raised by 25% — more companies now qualify as small",
+      "date": "2024-07-01",
+      "dateLabel": "In force 1 July 2024",
+      "summary": "The European Union (Adjustments of Size Criteria for Certain Companies and Groups) Regulations 2024 raised the balance sheet and turnover thresholds for micro, small, medium and large companies by 25%.",
+      "body": [
+        "The Regulations came into force on 1 July 2024 and the new thresholds apply for financial years commencing on or after 1 January 2024. Companies may have the option to apply them from 1 January 2023 in certain circumstances.",
+        "The practical effect is that more companies now fall within the micro or small categories, and so may benefit from audit exemption. A company is classified by size where it meets two of the three criteria.",
+        "If your company sat just above the old small threshold, it is worth re-checking: the change may have moved you."
+      ],
+      "table": "sizeThresholds",
+      "source": { "label": "European Union (Adjustments of Size Criteria for Certain Companies and Groups) Regulations 2024", "url": "https://enterprise.gov.ie/en" }
+    },
+    {
+      "id": "rbo",
+      "status": "current",
+      "fromClient": true,
+      "kicker": "Beneficial ownership",
+      "title": "Five months from incorporation, fourteen days from any change",
+      "date": "2026-10-10",
+      "dateLabel": "Reviewed October 2026",
+      "summary": "Every company registered in Ireland must record its ultimate beneficial owners at the RBO, and must also keep its own internal beneficial ownership register.",
+      "body": [
+        "A newly incorporated company has five months from the date of incorporation to register the details of its beneficial owners with the Register of Beneficial Ownership. Each company must also keep its own internal RBO register within its statutory register — the central filing does not discharge that obligation.",
+        "Any change in the ultimate beneficial owners must be recorded at the RBO within 14 days of the change. Fourteen days is short, and it runs from the change itself, not from the date anyone notices it.",
+        "Failure to comply can result in the Registrar commencing prosecution proceedings against the company."
+      ],
+      "source": { "label": "Register of Beneficial Ownership", "url": "https://rbo.gov.ie/" }
+    },
+    {
+      "id": "strike-off",
+      "status": "current",
+      "fromClient": true,
+      "kicker": "Voluntary strike-off",
+      "title": "Plan a strike-off backwards from the Revenue letter",
+      "date": "2026-10-10",
+      "dateLabel": "Reviewed October 2026",
+      "summary": "Four conditions must all be satisfied, and two of them are on timers that run against each other.",
+      "body": [
+        "A company that has ceased trading, or never traded, can apply for voluntary strike-off provided that all outstanding annual returns have been delivered to the CRO; the assets and liabilities do not exceed €150; a letter of no objection has been obtained from the Revenue Commissioners dated no more than three months before the application; and a notice of intention has been advertised in one daily national newspaper no more than 30 days before it.",
+        "The letter of no objection has been taking approximately twelve weeks to obtain, and it is only good for three months. That leaves a narrow window, and directors need to be mindful where the company's annual return date falls inside it — the obligation to file does not pause because an application is in train."
+      ],
+      "source": { "label": "Companies Registration Office", "url": "https://cro.ie" }
+    },
+    {
+      "id": "cgerp-act",
+      "status": "current",
+      "fromClient": true,
+      "corrected": true,
+      "kicker": "Legislation",
+      "title": "The 2024 governance and enforcement Bill was enacted",
+      "date": "2026-10-10",
+      "dateLabel": "Reviewed October 2026",
+      "summary": "The General Scheme published in March 2024 became the Companies (Corporate Governance, Enforcement and Regulatory Provisions) Act 2024. Its audit exemption provision is now the operative rule.",
+      "body": [
+        "The measure that was tracked through 2024 as the Companies (Corporate Governance, Enforcement and Regulatory Provisions) Bill is now an Act, and section 22 of it governs the audit exemption position described above.",
+        "Among the changes carried by the Bill as published: a registered office agent may notify both the Registrar of Companies and the company that it will no longer provide a registered office address; the Registrar of the RBO may notify the Registrar of Companies of a failure to make an RBO filing; companies and industrial and provident societies may hold virtual general meetings on an ongoing basis; and additional grounds for involuntary strike-off were provided for.",
+        "If you are relying on a note written while this was still a Bill, it is worth re-reading."
+      ],
+      "source": { "label": "CRO — Missed deadlines", "url": "https://cro.ie/annual-return/missed-deadlines" }
+    }
+  ]
+}

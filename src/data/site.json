@@ -1,0 +1,68 @@
+{
+  "name": "Beacon Company Secretaries Limited",
+  "shortName": "Beacon",
+  "legalName": "Beacon Company Secretaries Limited",
+  "cro": "358753",
+  "incorporated": "2002-07-01",
+  "domain": "https://www.bcos.ie",
+  "tagline": "Independent company secretaries. Dublin and London.",
+  "description": "An independent firm of company secretaries providing corporate compliance, technical and advisory services to clients in Ireland, the UK, Europe, the US and Asia.",
+  "preview": {
+    "isPreview": true,
+    "noindex": true,
+    "bannerText": "Unofficial concept. Not affiliated with or authorised by Beacon Company Secretaries Limited.",
+    "liveSiteNote": "The live site is bcos.ie"
+  },
+  "phone": { "display": "+353 1 627 6627", "href": "tel:+35316276627" },
+  "email": "info@bcos.ie",
+  "hours": { "display": "Monday to Friday, 09:00 – 17:30", "opens": "09:00", "closes": "17:30", "days": ["Monday","Tuesday","Wednesday","Thursday","Friday"] },
+  "offices": [
+    {
+      "id": "dublin",
+      "label": "Dublin",
+      "role": "Registered office and head office",
+      "lines": ["Commercial House", "Millbank Business Park", "Lucan", "Co. Dublin"],
+      "postal": "K78 X5W6",
+      "country": "Ireland",
+      "countryCode": "IE",
+      "mapQuery": "Commercial House, Millbank Business Park, Lucan, Co. Dublin, K78 X5W6, Ireland"
+    },
+    {
+      "id": "london",
+      "label": "London",
+      "role": "United Kingdom office",
+      "lines": ["9 Perseverance Works", "Kingsland Road", "London"],
+      "postal": "E2 8DD",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "mapQuery": "9 Perseverance Works, Kingsland Road, London, E2 8DD, United Kingdom"
+    }
+  ],
+  "social": [
+    { "label": "X (Twitter)", "handle": "@beaconcosec", "url": "https://twitter.com/beaconcosec" },
+    { "label": "Instagram", "handle": "@bcosdublin", "url": "https://instagram.com/bcosdublin" },
+    { "label": "Facebook", "handle": "bcosdublin", "url": "https://facebook.com/bcosdublin" }
+  ],
+  "clientTypes": [
+    "Accountancy practices",
+    "Law firms",
+    "Owner-managed businesses",
+    "Public companies",
+    "Irish State bodies",
+    "Professional trade bodies",
+    "Charities"
+  ],
+  "markets": ["Ireland", "the United Kingdom", "Europe", "the United States", "Asia"],
+  "awards": [
+    { "year": 2024, "title": "Independent Corporate Compliance & Advisory Firm of the Year", "body": "Irish Enterprise Awards", "source": "client-stated" },
+    { "year": 2022, "title": "Best Independent Corporate Compliance Firm", "body": "Irish Enterprise Awards", "source": "client-stated" }
+  ],
+  "registries": [
+    { "label": "Companies Registration Office", "abbr": "CRO", "url": "https://cro.ie", "note": "Irish company filings" },
+    { "label": "Register of Beneficial Ownership", "abbr": "RBO", "url": "https://rbo.gov.ie/", "note": "Beneficial ownership filings" },
+    { "label": "Dept. of Enterprise, Tourism and Employment", "abbr": "DETE", "url": "https://enterprise.gov.ie/en", "note": "Policy and legislation" },
+    { "label": "Corporate Enforcement Authority", "abbr": "CEA", "url": "https://www.odce.ie/", "note": "Enforcement" },
+    { "label": "Company Law Review Group", "abbr": "CLRG", "url": "http://clrg.org/", "note": "Law reform" },
+    { "label": "Companies House", "abbr": "UK", "url": "https://www.gov.uk/government/organisations/companies-house", "note": "UK company filings" }
+  ]
+}

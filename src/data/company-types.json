@@ -1,0 +1,49 @@
+{
+  "types": [
+    {
+      "code": "LTD", "slug": "ltd", "name": "Private Company Limited by Shares",
+      "suffix": "Must end in “Limited” or “Teoranta”",
+      "summary": "The most common company type for small and medium enterprises.",
+      "directors": "Minimum of one director",
+      "secretary": "The company secretary cannot also be the sole director",
+      "members": "Minimum of one shareholder",
+      "liability": "The shareholders have limited liability",
+      "notes": "Can avail of audit exemption and file abridged financial statements if it falls below the audit thresholds.",
+      "formUrl": "https://www.bcos.ie/ltdform/"
+    },
+    {
+      "code": "DAC", "slug": "dac", "name": "Designated Activity Company",
+      "suffix": "Must end in “Designated Activity Company”",
+      "summary": "A private company limited by shares, incorporated to carry out a specific activity.",
+      "directors": "Minimum of two directors",
+      "secretary": "The company secretary may be one of the directors",
+      "members": "Minimum of one shareholder",
+      "liability": "The shareholders have limited liability",
+      "notes": "Can avail of audit exemption and file abridged financial statements if it falls below the audit thresholds.",
+      "formUrl": "https://www.bcos.ie/dacform/"
+    },
+    {
+      "code": "CLG", "slug": "clg", "name": "Company Limited by Guarantee",
+      "suffix": "Must end in “Company Limited By Guarantee”",
+      "summary": "Has no share capital. Typically used by not-for-profits, representative bodies, sporting and charitable organisations, and owner management companies.",
+      "directors": "Minimum of two directors",
+      "secretary": "The company secretary may be one of the directors",
+      "members": "Minimum of one member",
+      "liability": "Members have limited liability up to the amount stated in the constitution, usually €1.00",
+      "notes": "Can avail of audit exemption and file abridged financial statements if it falls within the audit thresholds.",
+      "formUrl": "https://www.bcos.ie/clgform/"
+    },
+    {
+      "code": "UC", "slug": "uc", "name": "Unlimited Company",
+      "suffix": "Must end in “Unlimited Company”",
+      "summary": "Shareholders have unlimited liability.",
+      "directors": "Minimum of two directors",
+      "secretary": "The company secretary may be one of the directors",
+      "members": "Minimum of one shareholder",
+      "liability": "The liability of the shareholders is unlimited",
+      "notes": "May avail of audit exemption and may not be required to file financial statements if it falls within the audit thresholds and other criteria.",
+      "formUrl": "https://www.bcos.ie/ucform/"
+    }
+  ],
+  "rboFormUrl": "https://www.bcos.ie/rboform/"
+}
